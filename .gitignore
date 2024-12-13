@@ -1,0 +1,7 @@
+calc.o
+server.o
+errors.o
+interface.o
+listener.o
+main.o
+isp
