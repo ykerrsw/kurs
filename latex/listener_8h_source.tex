@@ -1,0 +1,60 @@
+\hypertarget{listener_8h_source}{}\doxysection{listener.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#pragma one}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <sys/types.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <cstring>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <unistd.h>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <sys/socket.h>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <netinet/in.h>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <arpa/inet.h>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <random>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <locale>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <codecvt>}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}Data.h"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <numeric>}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <limits>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}User.h"{}}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{33 \textcolor{keyword}{class }\mbox{\hyperlink{classlistener}{listener}}\{}
+\DoxyCodeLine{34     \textcolor{keyword}{public}:}
+\DoxyCodeLine{42         \textcolor{keywordtype}{int} \mbox{\hyperlink{classlistener_a6d3f932299744d6741e326cbbe369526}{interaction}}(\textcolor{keywordtype}{string} database, \textcolor{keywordtype}{string} logFile);}
+\DoxyCodeLine{43         }
+\DoxyCodeLine{48         uint64\_t \mbox{\hyperlink{classlistener_ace03e9bd1516d0124a51da7323797df8}{sredn}}();}
+\DoxyCodeLine{49      }
+\DoxyCodeLine{50         \textcolor{keywordtype}{string} get\_address();}
+\DoxyCodeLine{51         \textcolor{keywordtype}{void} set\_address(\textcolor{keywordtype}{string} address1);}
+\DoxyCodeLine{56         \textcolor{keywordtype}{int} \mbox{\hyperlink{classlistener_a96e02b92bdbd8cbab37f60e6ca62ec2f}{get\_port}}();}
+\DoxyCodeLine{57         \textcolor{keywordtype}{void} set\_port(\textcolor{keywordtype}{int} port1);}
+\DoxyCodeLine{58     }
+\DoxyCodeLine{59         vector<uint64\_t> get\_vec();}
+\DoxyCodeLine{60         \textcolor{keywordtype}{void} set\_vec(vector<uint64\_t> v);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62         \textcolor{keywordtype}{string} get\_salt();}
+\DoxyCodeLine{63         \textcolor{keywordtype}{void} set\_salt();}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65         pair<vector<string>, vector<string>> get\_DB\_clients();}
+\DoxyCodeLine{66         \textcolor{keywordtype}{void} set\_DB\_clients(vector<string> login, vector<string> password);}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{keyword}{private}:}
+\DoxyCodeLine{69         \textcolor{keywordtype}{string} \mbox{\hyperlink{classlistener_a3aeef21e5397e39afaee7eaaea8a8473}{address}};                   }
+\DoxyCodeLine{70         \textcolor{keywordtype}{int} \mbox{\hyperlink{classlistener_a6ed195d2c60adb911ebeec128862d346}{port}};                        }
+\DoxyCodeLine{71         vector<uint64\_t> \mbox{\hyperlink{classlistener_a16418029bf5ea5d717516292e489fc36}{vec}};             }
+\DoxyCodeLine{72         \textcolor{keywordtype}{string} \mbox{\hyperlink{classlistener_ad6352f58fb10b539dfe0f71f0b29baf9}{salt}};                     }
+\DoxyCodeLine{73         pair<vector<string>, vector<string>>\mbox{\hyperlink{classlistener_a79b1d2171e26ab7ca5e2ba62903ef189}{DB\_clients}}; }
+\DoxyCodeLine{74         \mbox{\hyperlink{classErrors}{Errors}} \mbox{\hyperlink{classlistener_a2603aca3916b25382f79bf4d10662e41}{Err}};                         }
+\DoxyCodeLine{75 \};}
+
+\end{DoxyCode}

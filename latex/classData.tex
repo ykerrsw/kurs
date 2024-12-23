@@ -1,0 +1,68 @@
+\hypertarget{classData}{}\doxysection{Класс Data}
+\label{classData}\index{Data@{Data}}
+
+
+Класс \mbox{\hyperlink{classData}{Data}} для управления данными, связанными с файлами и клиентами.  
+
+
+
+
+{\ttfamily \#include $<$Data.\+h$>$}
+
+
+
+Граф связей класса Data\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=125pt]{classData__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{classData_a287bcca9c9373339e513cd360b173cb0}{get\+\_\+\+File\+Reader}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает имя файла, которое используется для чтения данных. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classData_a711f889a8bd49485c5ede9a4cc3a332d}\label{classData_a711f889a8bd49485c5ede9a4cc3a332d}} 
+void {\bfseries set\+\_\+\+File\+Reader} (string file)
+\item 
+\mbox{\Hypertarget{classData_ad21edfc1c1cabb308dcbcb992459db5d}\label{classData_ad21edfc1c1cabb308dcbcb992459db5d}} 
+pair$<$ vector$<$ string $>$, vector$<$ string $>$ $>$ {\bfseries get\+Client} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classData_af04000f6aa0109915380661349942e9a}\label{classData_af04000f6aa0109915380661349942e9a}} 
+string {\bfseries File\+Reader}
+\begin{DoxyCompactList}\small\item\em Строка для хранения имени файла, которое используется для чтения данных. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classData_a4b55a21c830da07814783b52cf489864}\label{classData_a4b55a21c830da07814783b52cf489864}} 
+\mbox{\hyperlink{classErrors}{Errors}} {\bfseries Err}
+\begin{DoxyCompactList}\small\item\em Объект класса \mbox{\hyperlink{classErrors}{Errors}} для обработки ошибок. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс \mbox{\hyperlink{classData}{Data}} для управления данными, связанными с файлами и клиентами. 
+
+Этот класс предназначен для хранения и обработки информации, связанной с чтением данных из файла, а также для получения информации о клиентах, хранимой в двух векторах. 
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classData_a287bcca9c9373339e513cd360b173cb0}\label{classData_a287bcca9c9373339e513cd360b173cb0}} 
+\index{Data@{Data}!get\_FileReader@{get\_FileReader}}
+\index{get\_FileReader@{get\_FileReader}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{get\_FileReader()}{get\_FileReader()}}
+{\footnotesize\ttfamily string Data\+::get\+\_\+\+File\+Reader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Возвращает имя файла, которое используется для чтения данных. 
+
+\begin{DoxyReturn}{Возвращает}
+std\+::string Имя файла, установленное с помощью set\+\_\+\+File\+Reader. 
+\end{DoxyReturn}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+Data.\+h\item 
+Data.\+cpp\end{DoxyCompactItemize}

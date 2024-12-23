@@ -1,0 +1,56 @@
+\hypertarget{Interface_8h_source}{}\doxysection{Interface.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <string\_view>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <array>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <unistd.h>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{10 \textcolor{comment}{/*}}
+\DoxyCodeLine{11 \textcolor{comment}{ * @brief Класс interface для обработки аргументов командной строки и хранения конфигурационных данных.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ *  Этот класс предназначен для обработки аргументов командной строки,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *  полученных при запуске программы, и хранения конфигурационных данных, таких как IP-\/адрес,}}
+\DoxyCodeLine{15 \textcolor{comment}{ *  номер порта, имя файла базы данных и имя файла журнала ошибок.}}
+\DoxyCodeLine{16 \textcolor{comment}{ */}}
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{classinterface}{interface}} \{}
+\DoxyCodeLine{18 \textcolor{keyword}{public}:}
+\DoxyCodeLine{19     \textcolor{keywordtype}{string} ip;   \textcolor{comment}{/*< IP-\/адрес. */}}
+\DoxyCodeLine{20     \textcolor{keywordtype}{int} port;    \textcolor{comment}{/*< Порт. */}}
+\DoxyCodeLine{21     \textcolor{keywordtype}{string} database;  \textcolor{comment}{/*< Название файла с базой данных. */}}
+\DoxyCodeLine{22     \textcolor{keywordtype}{string} logfile;     \textcolor{comment}{/*< Название файла, куда записываются ошибки. */}}
+\DoxyCodeLine{23     \textcolor{comment}{/*}}
+\DoxyCodeLine{24 \textcolor{comment}{     * @brief Конструктор, обрабатывающий аргументы командной строки.}}
+\DoxyCodeLine{25 \textcolor{comment}{     * }}
+\DoxyCodeLine{26 \textcolor{comment}{     * @param argc Количество аргументов командной строки.}}
+\DoxyCodeLine{27 \textcolor{comment}{     * @param argv Массив аргументов командной строки.}}
+\DoxyCodeLine{28 \textcolor{comment}{     */}}
+\DoxyCodeLine{29     \mbox{\hyperlink{classinterface}{interface}}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char}** argv);}
+\DoxyCodeLine{30     \textcolor{comment}{/*}}
+\DoxyCodeLine{31 \textcolor{comment}{     * @brief Запрещает создание объектов класса без аргументов.}}
+\DoxyCodeLine{32 \textcolor{comment}{     */}}
+\DoxyCodeLine{33     \mbox{\hyperlink{classinterface}{interface}}() = \textcolor{keyword}{delete};}
+\DoxyCodeLine{34      \textcolor{comment}{/*}}
+\DoxyCodeLine{35 \textcolor{comment}{     * @brief Возвращает IP-\/адрес.}}
+\DoxyCodeLine{36 \textcolor{comment}{     * @return IP-\/адрес.}}
+\DoxyCodeLine{37 \textcolor{comment}{     */}}
+\DoxyCodeLine{38     \textcolor{keywordtype}{string} get\_ip()\{}
+\DoxyCodeLine{39         \textcolor{keywordflow}{return} ip;\}}
+\DoxyCodeLine{40         }
+\DoxyCodeLine{41     \textcolor{comment}{/*}}
+\DoxyCodeLine{42 \textcolor{comment}{     * @brief Возвращает номер порта.}}
+\DoxyCodeLine{43 \textcolor{comment}{     * @return Номер порта.}}
+\DoxyCodeLine{44 \textcolor{comment}{     */}    }
+\DoxyCodeLine{45     \textcolor{keywordtype}{int} get\_port()\{}
+\DoxyCodeLine{46         \textcolor{keywordflow}{return} port;\}}
+\DoxyCodeLine{47     }
+\DoxyCodeLine{48     \textcolor{keywordtype}{int} help();}
+\DoxyCodeLine{49     }
+\DoxyCodeLine{50 \};}
+\DoxyCodeLine{51 }
+
+\end{DoxyCode}

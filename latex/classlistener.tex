@@ -1,0 +1,175 @@
+\hypertarget{classlistener}{}\doxysection{Класс listener}
+\label{classlistener}\index{listener@{listener}}
+
+
+Класс listener, реализующий серверную часть приложения.  
+
+
+
+
+{\ttfamily \#include $<$listener.\+h$>$}
+
+
+
+Граф связей класса listener\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=133pt]{classlistener__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classlistener_a6d3f932299744d6741e326cbbe369526}{interaction}} (string database, string log\+File)
+\begin{DoxyCompactList}\small\item\em Устанавливает взаимодействие с клиентами, обрабатывает их запросы и отправляет ответы. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{classlistener_ace03e9bd1516d0124a51da7323797df8}{sredn}} ()
+\begin{DoxyCompactList}\small\item\em Вычисляет среднее арифметическое значений в векторе vec. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classlistener_ac3ac59e1ff5cc41d82e60e1b2de5200e}\label{classlistener_ac3ac59e1ff5cc41d82e60e1b2de5200e}} 
+string {\bfseries get\+\_\+address} ()
+\item 
+\mbox{\Hypertarget{classlistener_af65eb6b9365b8cd1e72f57df36f7298d}\label{classlistener_af65eb6b9365b8cd1e72f57df36f7298d}} 
+void {\bfseries set\+\_\+address} (string address1)
+\item 
+int \mbox{\hyperlink{classlistener_a96e02b92bdbd8cbab37f60e6ca62ec2f}{get\+\_\+port}} ()
+\begin{DoxyCompactList}\small\item\em Устанавливает номер порта сервера. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classlistener_a805d8411f8a69a1bb00e7ce584d81288}\label{classlistener_a805d8411f8a69a1bb00e7ce584d81288}} 
+void {\bfseries set\+\_\+port} (int port1)
+\item 
+\mbox{\Hypertarget{classlistener_a033f0909e351e2d697e118b2d4dc0897}\label{classlistener_a033f0909e351e2d697e118b2d4dc0897}} 
+vector$<$ uint64\+\_\+t $>$ {\bfseries get\+\_\+vec} ()
+\item 
+\mbox{\Hypertarget{classlistener_a6d99f0087dd5b1a93226b207bc6af947}\label{classlistener_a6d99f0087dd5b1a93226b207bc6af947}} 
+void {\bfseries set\+\_\+vec} (vector$<$ uint64\+\_\+t $>$ v)
+\item 
+\mbox{\Hypertarget{classlistener_af4147fac54a618366703b72d92566060}\label{classlistener_af4147fac54a618366703b72d92566060}} 
+string {\bfseries get\+\_\+salt} ()
+\item 
+\mbox{\Hypertarget{classlistener_ae79ae1bc2c0d5b133ae07d465e93256f}\label{classlistener_ae79ae1bc2c0d5b133ae07d465e93256f}} 
+void {\bfseries set\+\_\+salt} ()
+\item 
+\mbox{\Hypertarget{classlistener_a5314504d3316abb0587b1dfeeb9da7a2}\label{classlistener_a5314504d3316abb0587b1dfeeb9da7a2}} 
+pair$<$ vector$<$ string $>$, vector$<$ string $>$ $>$ {\bfseries get\+\_\+\+DB\+\_\+clients} ()
+\item 
+\mbox{\Hypertarget{classlistener_a0379ea0658c5acc1107b7c2f9ef96593}\label{classlistener_a0379ea0658c5acc1107b7c2f9ef96593}} 
+void {\bfseries set\+\_\+\+DB\+\_\+clients} (vector$<$ string $>$ login, vector$<$ string $>$ password)
+\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{classlistener_a3aeef21e5397e39afaee7eaaea8a8473}{address}}
+\item 
+int \mbox{\hyperlink{classlistener_a6ed195d2c60adb911ebeec128862d346}{port}}
+\item 
+vector$<$ uint64\+\_\+t $>$ \mbox{\hyperlink{classlistener_a16418029bf5ea5d717516292e489fc36}{vec}}
+\item 
+string \mbox{\hyperlink{classlistener_ad6352f58fb10b539dfe0f71f0b29baf9}{salt}}
+\item 
+pair$<$ vector$<$ string $>$, vector$<$ string $>$ $>$ \mbox{\hyperlink{classlistener_a79b1d2171e26ab7ca5e2ba62903ef189}{DB\+\_\+clients}}
+\item 
+\mbox{\hyperlink{classErrors}{Errors}} \mbox{\hyperlink{classlistener_a2603aca3916b25382f79bf4d10662e41}{Err}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс listener, реализующий серверную часть приложения. 
+
+Этот класс отвечает за установление соединения с клиентами, обработку их запросов и отправку ответов. 
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classlistener_a96e02b92bdbd8cbab37f60e6ca62ec2f}\label{classlistener_a96e02b92bdbd8cbab37f60e6ca62ec2f}} 
+\index{listener@{listener}!get\_port@{get\_port}}
+\index{get\_port@{get\_port}!listener@{listener}}
+\doxysubsubsection{\texorpdfstring{get\_port()}{get\_port()}}
+{\footnotesize\ttfamily int listener\+::get\+\_\+port (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Устанавливает номер порта сервера. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em port1} & Номер порта, который нужно установить. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classlistener_a6d3f932299744d6741e326cbbe369526}\label{classlistener_a6d3f932299744d6741e326cbbe369526}} 
+\index{listener@{listener}!interaction@{interaction}}
+\index{interaction@{interaction}!listener@{listener}}
+\doxysubsubsection{\texorpdfstring{interaction()}{interaction()}}
+{\footnotesize\ttfamily int listener\+::interaction (\begin{DoxyParamCaption}\item[{string}]{database,  }\item[{string}]{log\+File }\end{DoxyParamCaption})}
+
+
+
+Устанавливает взаимодействие с клиентами, обрабатывает их запросы и отправляет ответы. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em database} & Путь к файлу базы данных. \\
+\hline
+{\em log\+File} & Путь к файлу логов. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+0, если взаимодействие успешно установлено; иначе -\/1. 
+\end{DoxyReturn}
+Data\+Reader
+
+!!!!!!!!!\mbox{\Hypertarget{classlistener_ace03e9bd1516d0124a51da7323797df8}\label{classlistener_ace03e9bd1516d0124a51da7323797df8}} 
+\index{listener@{listener}!sredn@{sredn}}
+\index{sredn@{sredn}!listener@{listener}}
+\doxysubsubsection{\texorpdfstring{sredn()}{sredn()}}
+{\footnotesize\ttfamily uint64\+\_\+t listener\+::sredn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Вычисляет среднее арифметическое значений в векторе vec. 
+
+\begin{DoxyReturn}{Возвращает}
+Среднее арифметическое значений в векторе. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Данные класса}
+\mbox{\Hypertarget{classlistener_a3aeef21e5397e39afaee7eaaea8a8473}\label{classlistener_a3aeef21e5397e39afaee7eaaea8a8473}} 
+\index{listener@{listener}!address@{address}}
+\index{address@{address}!listener@{listener}}
+\doxysubsubsection{\texorpdfstring{address}{address}}
+{\footnotesize\ttfamily string listener\+::address\hspace{0.3cm}{\ttfamily [private]}}
+
+IP-\/адрес сервера. \mbox{\Hypertarget{classlistener_a79b1d2171e26ab7ca5e2ba62903ef189}\label{classlistener_a79b1d2171e26ab7ca5e2ba62903ef189}} 
+\index{listener@{listener}!DB\_clients@{DB\_clients}}
+\index{DB\_clients@{DB\_clients}!listener@{listener}}
+\doxysubsubsection{\texorpdfstring{DB\_clients}{DB\_clients}}
+{\footnotesize\ttfamily pair$<$vector$<$string$>$, vector$<$string$>$ $>$ listener\+::\+DB\+\_\+clients\hspace{0.3cm}{\ttfamily [private]}}
+
+Пара векторов\+: логины и пароли пользователей. \mbox{\Hypertarget{classlistener_a2603aca3916b25382f79bf4d10662e41}\label{classlistener_a2603aca3916b25382f79bf4d10662e41}} 
+\index{listener@{listener}!Err@{Err}}
+\index{Err@{Err}!listener@{listener}}
+\doxysubsubsection{\texorpdfstring{Err}{Err}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classErrors}{Errors}} listener\+::\+Err\hspace{0.3cm}{\ttfamily [private]}}
+
+Объект для обработки ошибок. \mbox{\Hypertarget{classlistener_a6ed195d2c60adb911ebeec128862d346}\label{classlistener_a6ed195d2c60adb911ebeec128862d346}} 
+\index{listener@{listener}!port@{port}}
+\index{port@{port}!listener@{listener}}
+\doxysubsubsection{\texorpdfstring{port}{port}}
+{\footnotesize\ttfamily int listener\+::port\hspace{0.3cm}{\ttfamily [private]}}
+
+Номер порта сервера. \mbox{\Hypertarget{classlistener_ad6352f58fb10b539dfe0f71f0b29baf9}\label{classlistener_ad6352f58fb10b539dfe0f71f0b29baf9}} 
+\index{listener@{listener}!salt@{salt}}
+\index{salt@{salt}!listener@{listener}}
+\doxysubsubsection{\texorpdfstring{salt}{salt}}
+{\footnotesize\ttfamily string listener\+::salt\hspace{0.3cm}{\ttfamily [private]}}
+
+Сгенерированная соль. \mbox{\Hypertarget{classlistener_a16418029bf5ea5d717516292e489fc36}\label{classlistener_a16418029bf5ea5d717516292e489fc36}} 
+\index{listener@{listener}!vec@{vec}}
+\index{vec@{vec}!listener@{listener}}
+\doxysubsubsection{\texorpdfstring{vec}{vec}}
+{\footnotesize\ttfamily vector$<$uint64\+\_\+t$>$ listener\+::vec\hspace{0.3cm}{\ttfamily [private]}}
+
+Вектор значений. 
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+listener.\+h\item 
+listener.\+cpp\end{DoxyCompactItemize}

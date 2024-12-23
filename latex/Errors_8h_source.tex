@@ -1,0 +1,30 @@
+\hypertarget{Errors_8h_source}{}\doxysection{Errors.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <chrono>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <ctime>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{comment}{/*}}
+\DoxyCodeLine{11 \textcolor{comment}{ * @brief Класс для обработки и записи ошибок.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Класс Errors предоставляет функциональность для записи информации об ошибках в лог-\/файл, а также}}
+\DoxyCodeLine{14 \textcolor{comment}{ * для управления именем файла лога.}}
+\DoxyCodeLine{15 \textcolor{comment}{ */}}
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{classErrors}{Errors}}\{}
+\DoxyCodeLine{17     \textcolor{keyword}{public}:}
+\DoxyCodeLine{18         \textcolor{keywordtype}{string} get\_File\_Log();}
+\DoxyCodeLine{19         \textcolor{keywordtype}{void} set\_File\_Log(\textcolor{keywordtype}{string} file);}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21         \textcolor{keywordtype}{void} error\_recording(\textcolor{keywordtype}{string} flag, \textcolor{keywordtype}{string} info);}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keyword}{private}:}
+\DoxyCodeLine{24         \textcolor{keywordtype}{string} File\_Log; \textcolor{comment}{/*< Имя файла лога ошибок. */}\};}
+\DoxyCodeLine{25         }
+
+\end{DoxyCode}
