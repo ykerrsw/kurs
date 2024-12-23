@@ -7,7 +7,12 @@
 
 using namespace std;
 
-
+/*
+ * @brief Класс для обработки и записи ошибок.
+ *
+ * Класс Errors предоставляет функциональность для записи информации об ошибках в лог-файл, а также
+ * для управления именем файла лога.
+ */
 class Errors{
     public:
         string get_File_Log();
@@ -16,5 +21,5 @@ class Errors{
         void error_recording(string flag, string info);
 
     private:
-        string File_Log;};
+        string File_Log; /*< Имя файла лога ошибок. */};
         
