@@ -1,58 +1,56 @@
-#pragma once
-#include <memory>
+
+#pragma one
+#include <sys/types.h>
+#include <iostream>
+#include <cstdlib>
+#include <cstring>
+#include <unistd.h>
+#include <sys/socket.h>
 #include <netinet/in.h>
-#include <string>
+#include <arpa/inet.h>
+#include <fstream>
 #include <vector>
-#include "errors.h"
-static constexpr int default_port = 33333;
-static constexpr int default_qlen = 10;
+#include <random>
 
-class Listener
-{
+#include <string>
+#include <locale>
+#include <codecvt>
 
-private:
-    std::unique_ptr<sockaddr_in> self_addr;
-    std::unique_ptr<sockaddr_in> foreign_addr;
-    int queueLen;
+#include "Data.h"
+#include <vector>
+#include <numeric>
+#include <limits>
+#include <iostream>
+#include "User.h"
 
-public:
+using namespace std;
 
-    //заполнены
-    std::string ip;
-    std::string logfile;
-    std::string db;
-    int port;
-    
-    std::string salt;
-    std::string login;
-    std::string hash;
-    int sock;
-    std::vector<uint64_t> vec;
-     
-    Listener(int port1, int qlen, std::string ip1);
-    Listener() = delete;
-    
-    ~Listener(){
-    close(sock);};
-    
-    void Run();
-    
-    void set_port(int prt1){
-    errors err3;
-    if (prt1 < 1023){
-    err3.error_recording("критичная", "порт сервера должен быть больше 1024.");
-    port = prt1;}};
-    
-    void set_ip(std::string ip1){
-    ip = ip1;
-    }
 
-	void set_db(std::string db1){
-    db = db1;
-    }
-	
-	void set_log(std::string log){
-    logfile = log;
-    }
+class listener{
+    public:
+        int interaction(string database, string logFile);
+        uint64_t sredn();
 
+        string get_address();
+        void set_address(string address1);
+
+        int get_port();
+        void set_port(int port1);
+
+        vector<uint64_t> get_vec();
+        void set_vec(vector<uint64_t> v);
+
+        string get_salt();
+        void set_salt();
+
+        pair<vector<string>, vector<string>> get_DB_clients();
+        void set_DB_clients(vector<string> login, vector<string> password);
+
+    private:
+        string address;
+        int port;
+        vector<uint64_t> vec;
+        string salt;
+        pair<vector<string>, vector<string>>DB_clients;
+        Errors Err;
 };

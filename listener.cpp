@@ -1,208 +1,240 @@
-#include <iostream>
-#include <system_error>
-#include <unistd.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
-#include <vector>
-#include <cstring>
-#include "calc.h"
 #include "listener.h"
-#include "errors.h"
-#include "server.h"
-
-Listener::Listener(int port1, int qlen, std::string ip1):
-    sock(socket(AF_INET, SOCK_STREAM, 0)),				// созд сокет 
-    self_addr(new sockaddr_in),							// созд сруктура отправителя
-    //foreign_addr(new sockaddr_in),						
-    queueLen(qlen)                                      //количество в очереди
-{	
-	ip = ip1;
-    errors err1;
-    port = port1;
-    if (sock == -1)
-        err1.error_recording("критичная", "ошибка создания сокета");
-    int on = 1;
-    int rc1 = setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &on, sizeof on);
-    if ( rc1 == -1 )
-        err1.error_recording("критичная", "ошибка создания сокета");
-    
-    // заполнение структуры для адреса сервера
-    self_addr->sin_family = AF_INET;
-    self_addr->sin_port = htons(port);  
-    
-	int result = inet_pton(AF_INET, ip.c_str(), &(self_addr->sin_addr));
-	if (result != 1) {
-  		err1.error_recording("критичная", "Ошибка преобразования IP-адреса: " + std::string(strerror(errno)));}
-
-    // Привязка сокета к адресу
-    if (bind(sock, reinterpret_cast<const sockaddr*>(self_addr.get()), sizeof (sockaddr_in)) == -1)
-         err1.error_recording("Критическая ошибка", "Ошибка привязки сокета: " + std::string(strerror(errno)) + ", Port: " + std::to_string(port) + ", IP: " + ip);
-    socklen_t addrlen = sizeof(self_addr);
-    if (getsockname(sock, (struct sockaddr*)&self_addr, &addrlen) == -1) {
-              err1.error_recording("Критическая ошибка", "Ошибка при получении адреса сокета: " + std::string(strerror(errno)));
-     // Прослушивание порта
-     if (listen(sock, 5) == -1) {
-     close(sock);
-        err1.error_recording("критичная", "ошибка при прослушке порта");
-        
-}}
-  
-  
-void Listener::Run(){
-    errors err2;
-    int rc;
-    int buflen = 1024; 
-    int bytes_read;
-    
-    while (true){ 
-    unique_ptr <char[]> buf(new char[buflen]);
-    
-    std::cout<<"2/1"<<endl;
-    struct sockaddr_in client;
-    std::cout<<"2/2"<<endl;
-    socklen_t Length = sizeof(client);
-    std::cout<<"2/3"<<endl;
-     int work_sock = accept(sock, reinterpret_cast<struct sockaddr*>(&client), &Length);
-     std::cout<<"2/4"<<endl;
-     if (work_sock == -1) {
-       int error = errno;
-       err2.error_recording("Некритичная", "Ошибка при принятии соединения: " + std::string(strerror(error)));}
- 
-                        
-    rc = recv(work_sock, buf.get(), buflen, 0); 
-    std::cout<<"3"<<endl;
-    buf[bytes_read] = '\0';
-    string received_message(buf.get(), bytes_read);
-    if (rc == -1){
-        err2.error_recording("некритичная", "ошибка при очистке буфера.");}
-        //res.resize(res.find_last_not_of("\n\r") + 1);
-     //buf[bytes_read] = '\0';
-      std::cout<<"4 пункт"<<endl;
-    server s1;
-    pair<vector<string>, vector<string>> para;
-    para = s1.data_base();
-    //login = string(buf);
-    
-    //проверка логина
-    int count1 = 0;
-    for (auto i: para.first)
-    {if (received_message == i){
-       count1++;}
-    string err1;
-    if (count1 ==0){
-      std::cout<<"5 пункт"<<endl;
-    cout << "логин неверен" << endl;
-    cout << "закрытие сокета" << endl;
-    strcpy(buf.get(),err1.c_str());
-    send(work_sock, buf.get(), err1.length(), 0);
-     close(work_sock);
-     err2.error_recording("некритичная", "ошибка аутентификации");
-    continue;}}
-     
-     
-    // Отправка SALT16 клиенту
-    salt = s1.generate_salt();
-    cout << "SALT16=" << salt << endl;
-    buf[0] = '\0'; // Очищаем буфер, записывая нуль-терминатор
-    strcpy(buf.get(), salt.c_str());         //копирует в массив
-    send(work_sock, buf.get(), salt.length(), 0);
 
 
-    // Получение от клиента HASH
-    rc = recv(work_sock, buf.get(), buflen, 0);
-    string received_message2(buf.get(), bytes_read);
-    buf[0] = '\0'; // Очищаем буфер, записывая нуль-терминатор
-    buf[rc] = '\0';
-    hash = string(buf.get());
-    s1.set_hash(hash);
-
-    // Проверка пароля  
-    string err_;
-    s1.check_pass(para.second, para.first, salt, login);
-    int count2 = 0;
-    for (auto i: para.second)
-    {if (received_message2 == i){
-       count2++; }
-    if (count2 ==0){
-    err_ = "ERROR";
-    cout << "пароль неверен" << endl;
-    cout << "закрытие сокета" << endl;
-    strcpy(buf.get(),err_.c_str());
-    send(work_sock, buf.get(), err_.length(), 0);
-    close(work_sock);
-    err2.error_recording("некритичная", "ошибка аутентификации");
-    continue;}
-
-
-    string s4 = "OK";
-    cout << "аутентификация пройдена" << endl;
-    strcpy(buf.get(),s4.c_str());
-    send(work_sock, buf.get(), s4.length(), 0);
-
-
-    // Получение количества векторов
-    uint32_t col = 0;
-    recv(work_sock, &col, sizeof(col), 0);
-    cout << "количество векторов: " << col << endl;
-
-    for(auto i = 0; i < col; i++){
-
-        // Получение длины вектора
-        uint32_t vec_len = 0;
-        recv(work_sock, &vec_len, sizeof(vec_len), 0);
-        cout << "длина вектора: " << vec_len << endl;
-
-        // Получение вектора
-        uint64_t arr[vec_len] = {0};
-
-        recv(work_sock, &arr, sizeof(arr), 0);
-
-        vector<uint64_t> vec1;
-        for (size_t j = 0; j < vec_len; j++) {
-        vec1.push_back(arr[j]);
-        cout << vec1[j] << " ";
+uint64_t listener::sredn(){
+    uint64_t sum = 0;
+    uint64_t sr = 0;
+    uint32_t count = static_cast<uint32_t>(vec.size());
+    for (uint64_t value : vec) {
+        // типо если переполнение
+        if (sum > 9223372036854775807 - value) {
+            return 9223372036854775807;
         }
-        cout << "\n";
-
-        // Подсчет результатов
-        calc c(vec1, vec_len);
-        auto res = c.calculate();
-        cout << "результат вычислений: " << res << endl;
-
-        // Отправка результата
-        send(work_sock, &res, sizeof(res), 0);
-
-
-    }
-    // Закрываем соединение с клиентом
-    cout << "ЗАКРЫТИЕ СОКЕТА" << endl;
-    close(work_sock);
-}
-
-// Закрываем серверный сокет
-close(work_sock);
-}}
         
-//-----------------------------------------------------------------------------
-/*Listener::~Listener(){
-    close(sock);
+        sum += value;
+        } 
+    sr = sum / count;
+    return sr;}
+    
+
+
+int listener::interaction(string database, string logFile){
+    
+    Errors Err;
+    Err.set_File_Log(logFile);
+
+    Data DB;       //! DataReader
+    DB.set_FileReader(database);
+    auto db = DB.getClient();
+
+    vector<std::string> str1 = db.first;
+    vector<std::string> str2 = db.second;
+
+    set_DB_clients(str1, str2);
+
+    int serverSocket = socket(AF_INET, SOCK_STREAM, 0);
+    if (serverSocket == -1) {
+       Err.error_recording("критичная", "Fun: interaction. Ошибка при создании сокета.");
+    }
+
+    struct sockaddr_in serverAddress;
+    serverAddress.sin_family = AF_INET;
+    serverAddress.sin_addr.s_addr = inet_addr(get_address().c_str());
+    serverAddress.sin_port = htons(get_port());
+
+    if (bind(serverSocket, (struct sockaddr*)&serverAddress, sizeof(serverAddress)) == -1) {
+        close(serverSocket);
+        Err.error_recording("критичная", "Fun: interaction. Ошибка при привязке сокета к адресу.");}
+
+    if (listen(serverSocket, 5) == -1) {
+        close(serverSocket);
+        Err.error_recording("критичная", "Fun: interaction. Ошибка при начале прослушивания порта.");
+    }
+
+    std::cout << "\nСервер запущен на адресе " << get_address();
+    std::cout << " и порту " << get_port() << std::endl;
+
+     while (true) {
+        struct sockaddr_in clientAddress;
+        socklen_t clientAddressLength = sizeof(clientAddress);
+        int clientSocket = accept(serverSocket, (struct sockaddr*)&clientAddress, &clientAddressLength);
+        if (clientSocket == -1) {
+            close(serverSocket);
+            Err.error_recording("некритичная", "Fun: interaction. Ошибка при принятии соединения.");
+        }
+
+        cout << "ПОДКЛЮЧЕНИЕ - YES" << endl;
+
+
+        char buf[1024];
+        int bytes_read;
+
+        // Получение от клиента логина
+        bytes_read = recv(clientSocket, buf, sizeof(buf), 0);
+        buf[bytes_read] = '\0';
+        User u;                                                 //!!!!!!!!!!
+        u.set_ID(string(buf));
+        
+        string s1;
+        // Проверка логина DataReader
+        if(!u.СheckLogin(DB_clients.first)){
+            
+            s1 = "ERR";
+            cout << "АУТЕНТИФИКАЦИЯ - NO" << endl;
+            cout << "ЗАКРЫТИЕ СОКЕТА" << endl;
+            strcpy(buf,s1.c_str());
+            send(clientSocket, buf, s1.length(), 0);
+
+            close(clientSocket);
+            Err.error_recording("некритичная", "Fun: interaction. Ошибка аутентификации");
+            continue;
+        }
+
+        // Отправка SALT16 клиенту
+        set_salt();
+        string s2 = get_salt();
+        cout << "SALT16=" << s2 << endl;
+        strcpy(buf, s2.c_str());
+        send(clientSocket, buf, s2.length(), 0);
+
+
+        // Получение от клиента HASH
+        bytes_read = recv(clientSocket, buf, sizeof(buf), 0);
+        buf[bytes_read] = '\0';
+        
+        u.set_hash(string(buf));
+
+        string s3;
+        // Проверка пароля
+
+        if(!u.CheckPassword(DB_clients.second, DB_clients.first, get_salt())){
+            s3 = "ERR";
+            cout << "АУТЕНТИФИКАЦИЯ - NO" << endl;
+            cout << "ЗАКРЫТИЕ СОКЕТА" << endl;
+            strcpy(buf,s3.c_str());
+            send(clientSocket, buf, s3.length(), 0);
+
+            close(clientSocket);
+            Err.error_recording("некритичная", "Fun: interaction. Ошибка аутентификации");
+            continue;
+        }
+
+        string s4 = "OK";
+        cout << "АУТЕНТИФИКАЦИЯ - YES" << endl;
+        strcpy(buf,s4.c_str());
+        send(clientSocket, buf, s4.length(), 0);
+
+
+        // Получение веторов
+
+        // Получение количества векторов
+        uint32_t col = 0;
+        recv(clientSocket, &col, sizeof(col), 0);
+        cout << "КОЛИЧЕСТВО ВЕКТОРОВ: " << col << endl;
+
+        for(auto i = 0; i < col; i++){
+
+            // Получение длины вектора
+            uint32_t vec_len = 0;
+            recv(clientSocket, &vec_len, sizeof(vec_len), 0);
+            cout << "ДЛИНА ВЕКТОРА: " << vec_len << endl;
+
+            // Получение вектора
+            uint64_t arr[vec_len] = {0};
+
+            recv(clientSocket, &arr, sizeof(arr), 0);
+
+            vector<uint64_t> vec1;
+            for (size_t j = 0; j < vec_len; j++) {
+            vec1.push_back(arr[j]);
+            cout << vec1[j] << " ";
+            }
+            cout << "\n";
+
+            // Подсчет результатов
+            set_vec(vec1);
+            auto res = sredn();
+            cout << "РЕЗУЛЬТАТ ВЫЧИСЛЕНИЙ: " << res << endl;
+
+            // Отправка результата
+            send(clientSocket, &res, sizeof(res), 0);
+
+
+        }
+        // Закрываем соединение с клиентом
+        cout << "ЗАКРЫТИЕ СОКЕТА" << endl;
+        close(clientSocket);
+    }
+
+    // Закрываем серверный сокет User
+    close(serverSocket);
+
+    return 0;
 }
-//-----------------------------------------------------------------------------
-void Listener::set_port(int prt1){
-    errors err3;
-    if (prt1 < 1023){
-    err3.error_recording("критичная", "порт сервера должен быть больше 1024.");
-    port = prt1;
-}}
-//-----------------------------------------------------------------------------
-void Listener::set_ip(std::string ip1){
-    ip = ip1;
+
+//----------------------------------------------------------------------------------------------------------------------------------------------
+string listener::get_address(){
+    return address;}
+//----------------------------------------------------------------------------------------------------------------------------------------------
+void listener::set_address(string address1){
+    const vector<string> list_add = {"127.0.0.1"};
+    int fl = 0;
+    for(auto it:list_add){
+        if(it == address1){
+            fl = 1;
+            address = address1;
+        }
     }
-//-----------------------------------------------------------------------------
-void Listener::set_db(std::string db1){
-    db = db1;
+    if(fl != 1){
+        Err.error_recording("критичная", "Fun: set_address. Адрес сервера не соответствует разрешенным.");
     }
-//-----------------------------------------------------------------------------
-void Listener::set_log(std::string log){
-    logfile = log;
-    }*/
+}
+//----------------------------------------------------------------------------------------------------------------------------------------------
+int listener::get_port(){
+    return port;}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------
+
+void listener::set_port(int port1){
+    if (port1 < 1023){
+        Err.error_recording("критичная", "Fun: set_port. Порт сервера должен быть больше 1024.");
+    } port = port1;}
+//----------------------------------------------------------------------------------------------------------------------------------------------
+vector<uint64_t> listener::get_vec(){
+    return vec;
+}
+//----------------------------------------------------------------------------------------------------------------------------------------------
+void listener::set_vec(vector<uint64_t> v){
+    vec = v; }
+//----------------------------------------------------------------------------------------------------------------------------------------------
+string listener::get_salt(){
+    return salt; }
+//----------------------------------------------------------------------------------------------------------------------------------------------
+void listener::set_salt(){
+    // Символы, которые могут встречаться в строке SALT
+    const string saltCharacters = "0123456789ABCDEF";
+    const int saltLength = 16;
+
+    // Генератор случайных чисел
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> dis(0, saltCharacters.length() - 1);
+
+    std::string Salt;
+    Salt.reserve(saltLength);
+
+    for (int i = 0; i < saltLength; ++i) {
+        int randomIndex = dis(gen);
+        Salt += saltCharacters[randomIndex];
+    }
+
+    salt = Salt;
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------
+pair<vector<string>, vector<string>> listener::get_DB_clients(){
+    return DB_clients;}
+
+//----------------------------------------------------------------------------------------------------------------------------------------------
+void listener::set_DB_clients(vector<string> login, vector<string> password){
+    DB_clients = std::make_pair(login,password);}

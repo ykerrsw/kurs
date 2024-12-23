@@ -1,20 +1,6 @@
-#include "errors.h"
+#include "Errors.h"
 
-//--------------------------------------------------------------------------
-string errors::get_filelog(){
-    return logfile;}
-//--------------------------------------------------------------------------
-void errors::set_filelog(std::string file) {
-    std::ofstream outputFile(file, std::ios::app);
-    if (!outputFile.is_open()) {
-        outputFile.close(); 
-        error_recording("критичная", "невозможно открыть или создать журнал ошибок");
-    }
-    else {outputFile.close(); 
-       logfile = file;}}
-//--------------------------------------------------------------------------
-void errors::error_recording(string flag, string info){
-    
+void Errors::error_recording(string flag, string info){
     // Получаем текущую дату и время
     time_t currentTime = time(nullptr);
     tm* localTime = localtime(&currentTime);
@@ -39,7 +25,7 @@ void errors::error_recording(string flag, string info){
         throw std::invalid_argument(info);
     }
 
-    string logFileName = get_filelog();
+    string logFileName = get_File_Log();
     std::ofstream logFile(logFileName, std::ios::app);
     if (logFile.is_open()) {
         // Записываем дату и время
@@ -52,6 +38,22 @@ void errors::error_recording(string flag, string info){
         logFile << info << std::endl;
 
         // Закрываем файл
-        logFile.close();
+        logFile.close();}}
+        
+//--------------------------------------------------------------------------------------------------
+string Errors::get_File_Log(){
+    return File_Log;
+}
+//--------------------------------------------------------------------------------------------------
+void Errors::set_File_Log(string file){
+
+    ifstream inputFile(file);
+	std::cout<<"файл "<<file<<" с журналом ошибок был успешно открыт"<<endl;
+    if (!inputFile.is_open()){
+        inputFile.close();
+        error_recording("критичная", "Файл с журналом ошибок открыть невозможно.");
+        
     }
+    inputFile.close();
+        File_Log = file;
 }

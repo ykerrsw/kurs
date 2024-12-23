@@ -1,8 +1,8 @@
 all:
-	g++ main.cpp server.cpp errors.cpp listener.cpp calc.cpp interface.cpp -o isp -I/usr/include/cryptopp -L/usr/lib/x86_64-linux-gnu -lcryptopp
+	g++ main.cpp Errors.cpp listener.cpp Data.cpp Interface.cpp sha224.cpp User.cpp -o isp -I/usr/include/cryptopp -L/usr/lib/x86_64-linux-gnu -lcryptopp
 
 unit:
-	g++ main.cpp server.cpp errors.cpp listener.cpp calc.cpp interface.cpp -o utest -lcryptopp -lUnitTest++ -L/usr/lib/x86_64-linux-gnu
+	g++ unit_test.cpp Errors.cpp listener.cpp Data.cpp Interface.cpp sha224.cpp User.cpp -o utest -lcryptopp -lUnitTest++ -L/usr/lib/x86_64-linux-gnu
 
 clean:
 	rm -f isp utest

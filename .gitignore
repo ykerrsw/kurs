@@ -1,7 +1,10 @@
-calc.o
-server.o
-errors.o
-interface.o
+Data.o
+Errors.o
+Interface.o
 listener.o
 main.o
+sha224.o
+unit_test.o
+User.o
 isp
+utest
