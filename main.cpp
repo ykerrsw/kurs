@@ -4,7 +4,7 @@
 #include "interface.h"
 using namespace std;
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 { 
     interface v(argc, argv);
     return 0;

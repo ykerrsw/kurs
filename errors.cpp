@@ -4,13 +4,14 @@
 string errors::get_filelog(){
     return logfile;}
 //--------------------------------------------------------------------------
-void errors::set_filelog(string file){
-    ifstream inputFile(file);
-    if (!inputFile.is_open()){
-    inputFile.close();
-    error_recording("критичная", "невозможно открыть журнал ошибок");}
-    inputFile.close();
-    logfile = file;}
+void errors::set_filelog(std::string file) {
+    std::ofstream outputFile(file, std::ios::app);
+    if (!outputFile.is_open()) {
+        outputFile.close(); 
+        error_recording("критичная", "невозможно открыть или создать журнал ошибок");
+    }
+    else {outputFile.close(); 
+       logfile = file;}}
 //--------------------------------------------------------------------------
 void errors::error_recording(string flag, string info){
     

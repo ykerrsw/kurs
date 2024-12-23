@@ -1,49 +1,43 @@
-#pragma once
+#include <fstream>
+#include <utility>
 #include <vector>
 #include <string>
-#include <map>
-#include <stdexcept>
-#include <iostream>
-#include <random>
-#include <openssl/sha.h>
 #include "errors.h"
 #include "server.h"
-using namespace std;
-//namespace CPP = CryptoPP;
 
+//читает и сохраняет логин пароль в отдельных векторах 
+//читает и сохраняет логин пароль в отдельных векторах
+std::pair<std::vector<std::string>, std::vector<std::string>> server::data_base(){   //!!
+    std::ifstream inputFile(file_name);
+    std::vector<std::string> firstVector;
+    std::vector<std::string> secondVector;
+    errors err1;
 
-//--------------------------------------------------------------------------
-//читает и сохраняет логин пароль в отдельных векторах Err
-pair<vector<string>, vector<string>> server::data_base(string file_name){
-    ifstream inputFile(file_name);
-     vector<string> firstVector;
- 	vector<string> secondVector;
-errors err1;
+    if (!inputFile.is_open()) {
+        inputFile.close();
+        err1.error_recording("критичная", "не удалось открыть базу данных");
+       return std::make_pair(firstVector, secondVector);
+    } else if(inputFile.peek() == std::ifstream::traits_type::eof()) {
+        inputFile.close();
+        err1.error_recording("критичная", "база данных пуста");
+        return std::make_pair(firstVector, secondVector);
+    } else {
+        std::string line;
 
-if (!inputFile.is_open()){
-    inputFile.close();
-    err1.error_recording("критичная", "не удалось открыть базу данных");
-    
-}
-else if(inputFile.peek() == std::ifstream::traits_type::eof()) {
-    inputFile.close();
-    err1.error_recording("критичная", "база данных пуста");}
+        while (std::getline(inputFile, line)) {
+            std::istringstream ss(line);
+            std::string first, second;
 
-else
-{   string line;
+            if (std::getline(ss, first, ':') && std::getline(ss, second, ':')) {
+                firstVector.push_back(first);
+                secondVector.push_back(second);
+            }
+        }
 
-    while (getline(inputFile, line)) {
-        std::istringstream ss(line);
-        std::string first, second;
-        
-        // Чтение двух строк, разделенных пробелом
-        if (std::getline(ss, first, ':') && std::getline(ss, second, ':')) {
-            firstVector.push_back(first);
-            secondVector.push_back(second);}}
-
-    inputFile.close();
-    return std::make_pair(firstVector, secondVector);
-}};
+        inputFile.close();
+        return std::make_pair(firstVector, secondVector);
+    }
+};
 //--------------------------------------------------------------------------
 string server::generate_salt(){
     std::random_device rd;
@@ -58,29 +52,32 @@ string server::generate_salt(){
 
 return ss.str();}
 //--------------------------------------------------------------------------
-bool server::check_pass(vector<string> Db_password, vector<string> Db_ID, string SALT, string ID){
-     int t = 0;
- for (size_t i = 0; i < Db_ID.size(); ++i) {
-     if (Db_ID[i] == ID){
-         t = i;}}                           //записали индекс s
- 
-string spp = SALT + Db_password[t];
-SHA224_CTX ctx;
-SHA224_Init(&ctx);
-SHA224_Update(&ctx, spp.c_str(), spp.length()); // Добавляем данные для хеширования
-unsigned char hash2[SHA224_DIGEST_LENGTH];
-SHA224_Final(hash2, &ctx); // Записываем результат в hash2
+ bool server::check_pass(const std::vector<std::string>& Db_password, const std::vector<std::string>& Db_ID, const std::string& SALT, const std::string& ID) {
+       size_t t = Db_ID.size();
+       for (size_t i = 0; i < Db_ID.size(); ++i) {
+           if (Db_ID[i] == ID) {
+               t = i;
+               break;
+           }
+       }
+       if (t == Db_ID.size()) {
+           return false;
+       }
 
-// Преобразование массива байтов в шестнадцатеричную строку
-std::stringstream ss;
-for (int i = 0; i < SHA224_DIGEST_LENGTH; i++) {
-    ss << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(hash2[i]);
-}
-string hex_hash = ss.str();
- if (hash == hex_hash){
-     return 1;}
-     
- else{return 0;}}
+       std::string spp = SALT + Db_password[t];
+       std::string hex_hash;
+
+       using namespace CryptoPP;
+       SHA224 hash;
+       StringSource(spp, true,
+                    new HashFilter(hash,
+                                   new HexEncoder(
+                                       new StringSink(hex_hash))));
+
+       return hex_hash == hashish;
+   }
  //--------------------------------------------------------------------------
-void set_hash(string hash1){
-    hash == hash1; }
+void server::set_hash(string hash2){
+    hashish == hash2; }
+//---------------------------------------------------------------------------
+ server::~server(){};

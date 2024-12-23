@@ -1,14 +1,27 @@
+#include <getopt.h>
 #include "interface.h"
 #include "errors.h"
 #include "server.h"
 #include "calc.h"
+#include "listener.h"
 
 using namespace std;
 
-interface::interface(int argc, char **argv[])
+interface::interface(int argc, char** argv)
 {
     int opt;
     int option_index = 0;
+    
+    static struct option long_options[] = {
+            {"ip",       required_argument, 0, 'i'}, 
+            {"port",     required_argument, 0, 'p'}, 
+            {"debug",    no_argument,       0, 'd'},
+            {"logfile", required_argument, 0, 'l'}, 
+            {"help",     no_argument,       0, 'h'},
+            {0,           0,                 0, 0}   
+        };
+        
+   // if (){}
     while ((opt = getopt_long(argc, argv, "i::p::d::l::h::", long_options, &option_index)) != -1) {
 
         switch (opt) {
@@ -41,36 +54,36 @@ interface::interface(int argc, char **argv[])
 
      case 'l':
         if (optarg != nullptr) {
-            logFile = string(optarg);
+            logfile = string(optarg);
         }
         else{
-            logFile = string("Log.conf");
+            logfile = string("Log.conf");
         }
         break;
                 
         case 'h':
             help();
-            
-            return 1;
         
         default:
             // Некорректная опция
             cout << "некорректная опция\n";
             help();
-            return 2;
+       
         }
 }
-if(address == "" or port == 0 or database == "" or logFile == ""){
+if(ip == "" or port == 0 or database == "" or logfile == ""){
         cout << "были переданы пустые параметры" << endl;
         help();
-        return 0;
     }
-    listner l(port);
-    errors e(logfile);
-    listner::l.set_ip(ip);
-    errors::e.
-    listner::l.set_log(logfile);
-    listner::l.set_db(database);
+    int kolv = 3;
+    Listener l(port, kolv, ip);
+    errors e;
+    //l.set_ip(ip);
+    //std::cout<<ip<<endl;
+    l.set_log(logfile);
+    l.set_db(database);
+    e.set_filelog(logfile);
+    
     
     l.Run();
     
@@ -79,7 +92,7 @@ if(address == "" or port == 0 or database == "" or logFile == ""){
 
 //------------------------------------------------------------------------------------------------
 
-void interface::help(){
+int interface::help(){
     cout <<" ==============================================================================================="<< endl;
     cout <<"                                           СПРАВКА"<< endl;
     cout <<" ==============================================================================================="<< endl;
@@ -92,6 +105,7 @@ void interface::help(){
     cout << "Пример:" << endl;
     cout << "-i 127.0.0.1  -p 33333  -d DB.conf  -l log.conf" << endl;
     cout <<" ==============================================================================================="<< endl;
+    return 0;
 }
 //------------------------------------------------------------------------------------------------
 

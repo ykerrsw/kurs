@@ -1,7 +1,9 @@
 all:
-	g++ main.cpp server.cpp errors.cpp listener.cpp calc.cpp interface.cpp ./md5/md5.cpp -o isp -L/usr/lib/x86_64-linux-gnu -lcrypto
+	g++ main.cpp server.cpp errors.cpp listener.cpp calc.cpp interface.cpp -o isp -I/usr/include/cryptopp -L/usr/lib/x86_64-linux-gnu -lcryptopp
 
 unit:
-	g++ main.cpp server.cpp errors.cpp listener.cpp calc.cpp interface.cpp ./md5/md5.cpp -o utest -lcrypto -lUnitTest++ -L/usr/lib/x86_64-linux-gnu
+	g++ main.cpp server.cpp errors.cpp listener.cpp calc.cpp interface.cpp -o utest -lcryptopp -lUnitTest++ -L/usr/lib/x86_64-linux-gnu
+
 clean:
-	rm -f isp
+	rm -f isp utest
+

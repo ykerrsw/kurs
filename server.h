@@ -3,29 +3,26 @@
 #include <string>
 #include <map>
 #include <stdexcept>
-#include <iostream>
 #include <random>
-#include <openssl/sha.h>
-#include <string>
-#include <vector>
-#include <map>
 #include <fstream>
 #include <sstream>
 #include <iostream>
-using namespace std;
+#include <sstream>
+#include <iomanip>
+#include <cryptopp/sha.h>
+#include <cryptopp/hex.h>
+#include <utility>
 
-using namespace std;
-//namespace CPP = CryptoPP;
-
-class server{
+class server {
 public:
+    std::string hashish;
+    std::string file_name = "data.txt";
 
-    string hash;
-
-    bool check_pass(vector<string> Db_password, vector<string> Db_ID, string SALT, string ID);
-    string file_name = "data.txt";
-    pair<vector<string>, vector<string>> data_base(string file_name);
-    string generate_salt();
-    void set_hash(string hash1);
+    bool check_pass(const std::vector<std::string>& Db_password, const std::vector<std::string>& Db_ID, const std::string& SALT, const std::string& ID);
+    std::pair<std::vector<std::string>, std::vector<std::string>> data_base();
+    std::string generate_salt();
+    void set_hash(std::string hash2);
     ~server();
+
 };
+

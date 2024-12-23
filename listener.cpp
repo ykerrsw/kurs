@@ -4,17 +4,19 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <vector>
+#include <cstring>
 #include "calc.h"
 #include "listener.h"
 #include "errors.h"
-using namespace std;
+#include "server.h"
 
-Listener::Listener(int port1, int qlen = 3):
+Listener::Listener(int port1, int qlen, std::string ip1):
     sock(socket(AF_INET, SOCK_STREAM, 0)),				// созд сокет 
     self_addr(new sockaddr_in),							// созд сруктура отправителя
-    foreign_addr(new sockaddr_in),						// созд структура получателя
+    //foreign_addr(new sockaddr_in),						
     queueLen(qlen)                                      //количество в очереди
-{
+{	
+	ip = ip1;
     errors err1;
     port = port1;
     if (sock == -1)
@@ -26,60 +28,73 @@ Listener::Listener(int port1, int qlen = 3):
     
     // заполнение структуры для адреса сервера
     self_addr->sin_family = AF_INET;
-    self_addr->sin_port = htons(port);
-    self_addr->sin_addr.s_addr = inet_addr("127.0.0.1");
+    self_addr->sin_port = htons(port);  
+    
+	int result = inet_pton(AF_INET, ip.c_str(), &(self_addr->sin_addr));
+	if (result != 1) {
+  		err1.error_recording("критичная", "Ошибка преобразования IP-адреса: " + std::string(strerror(errno)));}
 
     // Привязка сокета к адресу
     if (bind(sock, reinterpret_cast<const sockaddr*>(self_addr.get()), sizeof (sockaddr_in)) == -1)
-        err1.error_recording("критичная", "ошибка привязки сокета к адресу");        
+         err1.error_recording("Критическая ошибка", "Ошибка привязки сокета: " + std::string(strerror(errno)) + ", Port: " + std::to_string(port) + ", IP: " + ip);
+    socklen_t addrlen = sizeof(self_addr);
+    if (getsockname(sock, (struct sockaddr*)&self_addr, &addrlen) == -1) {
+              err1.error_recording("Критическая ошибка", "Ошибка при получении адреса сокета: " + std::string(strerror(errno)));
      // Прослушивание порта
      if (listen(sock, 5) == -1) {
      close(sock);
         err1.error_recording("критичная", "ошибка при прослушке порта");
+        
 }}
   
   
-void Run();{
+void Listener::Run(){
     errors err2;
-    while (true){ 
-    
     int rc;
     int buflen = 1024; 
     int bytes_read;
+    
+    while (true){ 
     unique_ptr <char[]> buf(new char[buflen]);
     
-    
+    std::cout<<"2/1"<<endl;
     struct sockaddr_in client;
+    std::cout<<"2/2"<<endl;
     socklen_t Length = sizeof(client);
-     int work_sock = accept(sock, (struct sockaddr*)&client, &Length);
-     if (clientSocket == -1) {
-        close(serverSocket);
-        err2.error_recording("некритичная", "ошибка при принятии соединения.");}
-        
+    std::cout<<"2/3"<<endl;
+     int work_sock = accept(sock, reinterpret_cast<struct sockaddr*>(&client), &Length);
+     std::cout<<"2/4"<<endl;
+     if (work_sock == -1) {
+       int error = errno;
+       err2.error_recording("Некритичная", "Ошибка при принятии соединения: " + std::string(strerror(error)));}
+ 
                         
-    rc = recv(work_sock, buf, buflen, 0); 
+    rc = recv(work_sock, buf.get(), buflen, 0); 
+    std::cout<<"3"<<endl;
     buf[bytes_read] = '\0';
-    if (rc == -1)
+    string received_message(buf.get(), bytes_read);
+    if (rc == -1){
         err2.error_recording("некритичная", "ошибка при очистке буфера.");}
-        res.resize(res.find_last_not_of("\n\r") + 1);
-     buf[bytes_read] = '\0';
-    
-    server s1();
-    para = s1.data_base(file_name);
+        //res.resize(res.find_last_not_of("\n\r") + 1);
+     //buf[bytes_read] = '\0';
+      std::cout<<"4 пункт"<<endl;
+    server s1;
+    pair<vector<string>, vector<string>> para;
+    para = s1.data_base();
     //login = string(buf);
     
     //проверка логина
     int count1 = 0;
     for (auto i: para.first)
-    {if (rc == i){
-       count1++; }
+    {if (received_message == i){
+       count1++;}
     string err1;
     if (count1 ==0){
-    
+      std::cout<<"5 пункт"<<endl;
     cout << "логин неверен" << endl;
     cout << "закрытие сокета" << endl;
-    strcpy(buf,err1.c_str());
-    send(work_sock, buf, err1.length(), 0);
+    strcpy(buf.get(),err1.c_str());
+    send(work_sock, buf.get(), err1.length(), 0);
      close(work_sock);
      err2.error_recording("некритичная", "ошибка аутентификации");
     continue;}}
@@ -89,30 +104,31 @@ void Run();{
     salt = s1.generate_salt();
     cout << "SALT16=" << salt << endl;
     buf[0] = '\0'; // Очищаем буфер, записывая нуль-терминатор
-    strcpy(buf, salt.c_str());         //копирует в массив
-    send(work_sock, buf, salt.length(), 0);
+    strcpy(buf.get(), salt.c_str());         //копирует в массив
+    send(work_sock, buf.get(), salt.length(), 0);
 
 
     // Получение от клиента HASH
-    rc = recv(work_sock, buf, buflen, 0);
+    rc = recv(work_sock, buf.get(), buflen, 0);
+    string received_message2(buf.get(), bytes_read);
     buf[0] = '\0'; // Очищаем буфер, записывая нуль-терминатор
     buf[rc] = '\0';
-    hash = string(buf);
+    hash = string(buf.get());
     s1.set_hash(hash);
 
-    // Проверка пароля Err
+    // Проверка пароля  
     string err_;
     s1.check_pass(para.second, para.first, salt, login);
     int count2 = 0;
     for (auto i: para.second)
-    {if (rc == i){
+    {if (received_message2 == i){
        count2++; }
     if (count2 ==0){
     err_ = "ERROR";
     cout << "пароль неверен" << endl;
     cout << "закрытие сокета" << endl;
-    strcpy(buf,err_.c_str());
-    send(work_sock, buf, err_.length(), 0);
+    strcpy(buf.get(),err_.c_str());
+    send(work_sock, buf.get(), err_.length(), 0);
     close(work_sock);
     err2.error_recording("некритичная", "ошибка аутентификации");
     continue;}
@@ -120,8 +136,8 @@ void Run();{
 
     string s4 = "OK";
     cout << "аутентификация пройдена" << endl;
-    strcpy(buf,s4.c_str());
-    send(work_sock, buf, s4.length(), 0);
+    strcpy(buf.get(),s4.c_str());
+    send(work_sock, buf.get(), s4.length(), 0);
 
 
     // Получение количества векторов
@@ -164,31 +180,29 @@ void Run();{
 }
 
 // Закрываем серверный сокет
-close(serverSocket);
-
-return 0;}}
+close(work_sock);
+}}
         
 //-----------------------------------------------------------------------------
-Listener::~Listener()
-{
+/*Listener::~Listener(){
     close(sock);
 }
 //-----------------------------------------------------------------------------
-Listener::void set_port(int prt1){
+void Listener::set_port(int prt1){
     errors err3;
     if (prt1 < 1023){
     err3.error_recording("критичная", "порт сервера должен быть больше 1024.");
     port = prt1;
 }}
 //-----------------------------------------------------------------------------
-Listener::void set_ip(string ip1){
+void Listener::set_ip(std::string ip1){
     ip = ip1;
     }
 //-----------------------------------------------------------------------------
-Listener::void set_db(string db1){
+void Listener::set_db(std::string db1){
     db = db1;
     }
 //-----------------------------------------------------------------------------
-Listener::void set_log(string log){
+void Listener::set_log(std::string log){
     logfile = log;
-    }
+    }*/
