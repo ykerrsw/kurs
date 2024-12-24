@@ -28,8 +28,24 @@ var menudata={children:[
 {text:"Классы",url:"annotated.html"},
 {text:"Алфавитный указатель классов",url:"classes.html"},
 {text:"Члены классов",url:"functions.html",children:[
-{text:"Указатель",url:"functions.html"},
+{text:"Указатель",url:"functions.html",children:[
+{text:"a",url:"functions.html#index_a"},
+{text:"c",url:"functions.html#index_c"},
+{text:"d",url:"functions.html#index_d"},
+{text:"e",url:"functions.html#index_e"},
+{text:"f",url:"functions.html#index_f"},
+{text:"g",url:"functions.html#index_g"},
+{text:"h",url:"functions.html#index_h"},
+{text:"i",url:"functions.html#index_i"},
+{text:"l",url:"functions.html#index_l"},
+{text:"p",url:"functions.html#index_p"},
+{text:"s",url:"functions.html#index_s"},
+{text:"v",url:"functions.html#index_v"},
+{text:"с",url:"functions.html#index_a0xd181"}]},
 {text:"Функции",url:"functions_func.html"},
 {text:"Переменные",url:"functions_vars.html"}]}]},
 {text:"Файлы",url:"files.html",children:[
-{text:"Файлы",url:"files.html"}]}]}
+{text:"Файлы",url:"files.html"},
+{text:"Список членов всех файлов",url:"globals.html",children:[
+{text:"Указатель",url:"globals.html"},
+{text:"Функции",url:"globals_func.html"}]}]}]}

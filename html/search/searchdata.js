@@ -1,24 +1,27 @@
 var indexSectionsWithContent =
 {
-  0: "adefgilpsuv",
+  0: "acdefghilpsuvс",
   1: "deilu",
-  2: "gis",
-  3: "adefpsv"
+  2: "deilsu",
+  3: "cefghisс",
+  4: "adefhilpsv"
 };
 
 var indexSectionNames =
 {
   0: "all",
   1: "classes",
-  2: "functions",
-  3: "variables"
+  2: "files",
+  3: "functions",
+  4: "variables"
 };
 
 var indexSectionLabels =
 {
   0: "Указатель",
   1: "Классы",
-  2: "Функции",
-  3: "Переменные"
+  2: "Файлы",
+  3: "Функции",
+  4: "Переменные"
 };
 

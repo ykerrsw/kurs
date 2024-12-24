@@ -1,26 +1,85 @@
 \hypertarget{classErrors}{}\doxysection{Класс Errors}
 \label{classErrors}\index{Errors@{Errors}}
+
+
+Класс для обработки и записи ошибок.  
+
+
+
+
+{\ttfamily \#include $<$Errors.\+h$>$}
+
 \doxysubsection*{Открытые члены}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classErrors_ac8b5e1fb2924fbe8ca99ba7cc4fb3636}\label{classErrors_ac8b5e1fb2924fbe8ca99ba7cc4fb3636}} 
-string {\bfseries get\+\_\+\+File\+\_\+\+Log} ()
-\item 
-\mbox{\Hypertarget{classErrors_a5ef86b41b69408782c880014f0d86b15}\label{classErrors_a5ef86b41b69408782c880014f0d86b15}} 
-void {\bfseries set\+\_\+\+File\+\_\+\+Log} (string file)
-\item 
-\mbox{\Hypertarget{classErrors_a8a288801e9048d7c62a179af5ccc1804}\label{classErrors_a8a288801e9048d7c62a179af5ccc1804}} 
-void {\bfseries error\+\_\+recording} (string flag, string info)
-\end{DoxyCompactItemize}
+string \mbox{\hyperlink{classErrors_ac8b5e1fb2924fbe8ca99ba7cc4fb3636}{get\+\_\+\+File\+\_\+\+Log}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает имя файла лога ошибок. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classErrors_a5ef86b41b69408782c880014f0d86b15}{set\+\_\+\+File\+\_\+\+Log}} (string file)
+\begin{DoxyCompactList}\small\item\em Устанавливает имя файла лога ошибок. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classErrors_a8a288801e9048d7c62a179af5ccc1804}{error\+\_\+recording}} (string flag, string info)
+\begin{DoxyCompactList}\small\item\em Записывает информацию об ошибке в лог-\/файл. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Закрытые данные}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classErrors_a4f3944dd888331e75ef12dcb29999997}\label{classErrors_a4f3944dd888331e75ef12dcb29999997}} 
 string {\bfseries File\+\_\+\+Log}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Имя файла лога ошибок. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для обработки и записи ошибок. 
+
+Класс \mbox{\hyperlink{classErrors}{Errors}} предоставляет функциональность для записи информации об ошибках в лог-\/файл, а также для управления именем файла лога. 
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classErrors_a8a288801e9048d7c62a179af5ccc1804}\label{classErrors_a8a288801e9048d7c62a179af5ccc1804}} 
+\index{Errors@{Errors}!error\_recording@{error\_recording}}
+\index{error\_recording@{error\_recording}!Errors@{Errors}}
+\doxysubsubsection{\texorpdfstring{error\_recording()}{error\_recording()}}
+{\footnotesize\ttfamily void Errors\+::error\+\_\+recording (\begin{DoxyParamCaption}\item[{string}]{flag,  }\item[{string}]{info }\end{DoxyParamCaption})}
+
+
+
+Записывает информацию об ошибке в лог-\/файл. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em flag} & Тип ошибки \\
+\hline
+{\em info} & Описание ошибки \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classErrors_ac8b5e1fb2924fbe8ca99ba7cc4fb3636}\label{classErrors_ac8b5e1fb2924fbe8ca99ba7cc4fb3636}} 
+\index{Errors@{Errors}!get\_File\_Log@{get\_File\_Log}}
+\index{get\_File\_Log@{get\_File\_Log}!Errors@{Errors}}
+\doxysubsubsection{\texorpdfstring{get\_File\_Log()}{get\_File\_Log()}}
+{\footnotesize\ttfamily string Errors\+::get\+\_\+\+File\+\_\+\+Log (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Возвращает имя файла лога ошибок. 
+
+\begin{DoxyReturn}{Возвращает}
+Строка, содержащая имя файла лога ошибок. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classErrors_a5ef86b41b69408782c880014f0d86b15}\label{classErrors_a5ef86b41b69408782c880014f0d86b15}} 
+\index{Errors@{Errors}!set\_File\_Log@{set\_File\_Log}}
+\index{set\_File\_Log@{set\_File\_Log}!Errors@{Errors}}
+\doxysubsubsection{\texorpdfstring{set\_File\_Log()}{set\_File\_Log()}}
+{\footnotesize\ttfamily void Errors\+::set\+\_\+\+File\+\_\+\+Log (\begin{DoxyParamCaption}\item[{string}]{file }\end{DoxyParamCaption})}
+
+
+
+Устанавливает имя файла лога ошибок. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em file} & Имя файла лога ошибок. \\
+\hline
+\end{DoxyParams}
 
 
 Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
 \item 
-Errors.\+h\item 
-Errors.\+cpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{Errors_8h}{Errors.\+h}}\item 
+\mbox{\hyperlink{Errors_8cpp}{Errors.\+cpp}}\end{DoxyCompactItemize}

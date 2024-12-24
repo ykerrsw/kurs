@@ -1,4 +1,7 @@
-
+/**
+ * @file Data.h
+ * @brief Класс Data для управления данными, связанными с файлами и клиентами.
+ */
 #include <string>
 #include <vector>
 #include <map>

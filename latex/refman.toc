@@ -10,26 +10,72 @@
 \contentsline {subsection}{\numberline {3.1.2}Методы}{6}{subsection.3.1.2}%
 \contentsline {subsubsection}{\numberline {3.1.2.1}get\_FileReader()}{6}{subsubsection.3.1.2.1}%
 \contentsline {section}{\numberline {3.2}Класс Errors}{6}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Класс interface}{7}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Класс listener}{7}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Подробное описание}{8}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Методы}{8}{subsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.2.1}get\_port()}{8}{subsubsection.3.4.2.1}%
-\contentsline {subsubsection}{\numberline {3.4.2.2}interaction()}{9}{subsubsection.3.4.2.2}%
-\contentsline {subsubsection}{\numberline {3.4.2.3}sredn()}{9}{subsubsection.3.4.2.3}%
-\contentsline {subsection}{\numberline {3.4.3}Данные класса}{9}{subsection.3.4.3}%
-\contentsline {subsubsection}{\numberline {3.4.3.1}address}{9}{subsubsection.3.4.3.1}%
-\contentsline {subsubsection}{\numberline {3.4.3.2}DB\_clients}{9}{subsubsection.3.4.3.2}%
-\contentsline {subsubsection}{\numberline {3.4.3.3}Err}{10}{subsubsection.3.4.3.3}%
-\contentsline {subsubsection}{\numberline {3.4.3.4}port}{10}{subsubsection.3.4.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.3.5}salt}{10}{subsubsection.3.4.3.5}%
-\contentsline {subsubsection}{\numberline {3.4.3.6}vec}{10}{subsubsection.3.4.3.6}%
-\contentsline {section}{\numberline {3.5}Класс User}{10}{section.3.5}%
-\contentsline {chapter}{\numberline {4}Файлы}{11}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{11}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Errors.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{11}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Interface.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{12}{section.4.3}%
-\contentsline {section}{\numberline {4.4}listener.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{12}{section.4.4}%
-\contentsline {section}{\numberline {4.5}sha224.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{13}{section.4.5}%
-\contentsline {section}{\numberline {4.6}User.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{13}{section.4.6}%
-\contentsline {chapter}{{\cyrillictext \CYRP \cyrr \cyre \cyrd \cyrm \cyre \cyrt \cyrn \cyrery \cyrishrt \ \cyru \cyrk \cyra \cyrz \cyra \cyrt \cyre \cyrl \cyrsftsn }}{15}{section*.13}%
+\contentsline {subsection}{\numberline {3.2.1}Подробное описание}{7}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Методы}{7}{subsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.1}error\_recording()}{7}{subsubsection.3.2.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2.2}get\_File\_Log()}{7}{subsubsection.3.2.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.3}set\_File\_Log()}{7}{subsubsection.3.2.2.3}%
+\contentsline {section}{\numberline {3.3}Класс interface}{8}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Подробное описание}{8}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Конструктор(ы)}{8}{subsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.2.1}interface()}{8}{subsubsection.3.3.2.1}%
+\contentsline {subsection}{\numberline {3.3.3}Методы}{9}{subsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.3.1}get\_ip()}{9}{subsubsection.3.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.3.2}get\_port()}{9}{subsubsection.3.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3.3}help()}{9}{subsubsection.3.3.3.3}%
+\contentsline {section}{\numberline {3.4}Класс listener}{10}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Подробное описание}{11}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Методы}{11}{subsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.2.1}get\_port()}{11}{subsubsection.3.4.2.1}%
+\contentsline {subsubsection}{\numberline {3.4.2.2}interaction()}{11}{subsubsection.3.4.2.2}%
+\contentsline {subsubsection}{\numberline {3.4.2.3}sredn()}{11}{subsubsection.3.4.2.3}%
+\contentsline {subsection}{\numberline {3.4.3}Данные класса}{12}{subsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.3.1}address}{12}{subsubsection.3.4.3.1}%
+\contentsline {subsubsection}{\numberline {3.4.3.2}DB\_clients}{12}{subsubsection.3.4.3.2}%
+\contentsline {subsubsection}{\numberline {3.4.3.3}Err}{12}{subsubsection.3.4.3.3}%
+\contentsline {subsubsection}{\numberline {3.4.3.4}port}{12}{subsubsection.3.4.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.3.5}salt}{12}{subsubsection.3.4.3.5}%
+\contentsline {subsubsection}{\numberline {3.4.3.6}vec}{12}{subsubsection.3.4.3.6}%
+\contentsline {section}{\numberline {3.5}Класс User}{13}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Подробное описание}{13}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Методы}{13}{subsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.2.1}СheckLogin()}{13}{subsubsection.3.5.2.1}%
+\contentsline {subsubsection}{\numberline {3.5.2.2}CheckPassword()}{14}{subsubsection.3.5.2.2}%
+\contentsline {subsubsection}{\numberline {3.5.2.3}get\_hash()}{14}{subsubsection.3.5.2.3}%
+\contentsline {subsubsection}{\numberline {3.5.2.4}get\_ID()}{15}{subsubsection.3.5.2.4}%
+\contentsline {subsubsection}{\numberline {3.5.2.5}set\_hash()}{15}{subsubsection.3.5.2.5}%
+\contentsline {subsubsection}{\numberline {3.5.2.6}set\_ID()}{15}{subsubsection.3.5.2.6}%
+\contentsline {chapter}{\numberline {4}Файлы}{17}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Файл Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{17}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Подробное описание}{17}{subsection.4.1.1}%
+\contentsline {section}{\numberline {4.2}Файл Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{17}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Подробное описание}{18}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}Data.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{19}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Файл Errors.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{19}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Подробное описание}{19}{subsection.4.4.1}%
+\contentsline {section}{\numberline {4.5}Файл Errors.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{19}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Подробное описание}{20}{subsection.4.5.1}%
+\contentsline {section}{\numberline {4.6}Errors.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{21}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Файл Interface.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{21}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Подробное описание}{21}{subsection.4.7.1}%
+\contentsline {section}{\numberline {4.8}Файл Interface.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{21}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}Подробное описание}{22}{subsection.4.8.1}%
+\contentsline {section}{\numberline {4.9}Interface.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{22}{section.4.9}%
+\contentsline {section}{\numberline {4.10}Файл listener.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{23}{section.4.10}%
+\contentsline {subsection}{\numberline {4.10.1}Подробное описание}{23}{subsection.4.10.1}%
+\contentsline {section}{\numberline {4.11}Файл listener.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{23}{section.4.11}%
+\contentsline {subsection}{\numberline {4.11.1}Подробное описание}{24}{subsection.4.11.1}%
+\contentsline {section}{\numberline {4.12}listener.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{24}{section.4.12}%
+\contentsline {section}{\numberline {4.13}Файл sha224.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{25}{section.4.13}%
+\contentsline {subsection}{\numberline {4.13.1}Подробное описание}{26}{subsection.4.13.1}%
+\contentsline {section}{\numberline {4.14}Файл sha224.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{26}{section.4.14}%
+\contentsline {subsection}{\numberline {4.14.1}Подробное описание}{27}{subsection.4.14.1}%
+\contentsline {section}{\numberline {4.15}sha224.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{27}{section.4.15}%
+\contentsline {section}{\numberline {4.16}Файл User.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{27}{section.4.16}%
+\contentsline {subsection}{\numberline {4.16.1}Подробное описание}{28}{subsection.4.16.1}%
+\contentsline {subsection}{\numberline {4.16.2}Функции}{28}{subsection.4.16.2}%
+\contentsline {subsubsection}{\numberline {4.16.2.1}foo()}{28}{subsubsection.4.16.2.1}%
+\contentsline {section}{\numberline {4.17}Файл User.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{28}{section.4.17}%
+\contentsline {subsection}{\numberline {4.17.1}Подробное описание}{29}{subsection.4.17.1}%
+\contentsline {section}{\numberline {4.18}User.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{29}{section.4.18}%
+\contentsline {chapter}{{\cyrillictext \CYRP \cyrr \cyre \cyrd \cyrm \cyre \cyrt \cyrn \cyrery \cyrishrt \ \cyru \cyrk \cyra \cyrz \cyra \cyrt \cyre \cyrl \cyrsftsn }}{31}{section*.40}%

@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Файл listener.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Классы</a>  </div>
+  <div class="headertitle"><div class="title">Файл listener.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс listener для вычисления среднего арифметического значений в векторе.  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &lt;sys/types.h&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;cstdlib&gt;</code><br />
+<code>#include &lt;cstring&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;sys/socket.h&gt;</code><br />
+<code>#include &lt;netinet/in.h&gt;</code><br />
+<code>#include &lt;arpa/inet.h&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;random&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;locale&gt;</code><br />
+<code>#include &lt;codecvt&gt;</code><br />
+<code>#include &lt;numeric&gt;</code><br />
+<code>#include &lt;limits&gt;</code><br />
+<code>#include &quot;<a class="el" href="User_8h_source.html">User.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Data_8h_source.html">Data.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Граф включаемых заголовочных файлов для listener.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="listener_8h__incl.png" border="0" usemap="#alistener_8h" alt=""/></div>
+<map name="alistener_8h" id="alistener_8h">
+<area shape="rect" title="Класс listener для вычисления среднего арифметического значений в векторе." alt="" coords="845,5,928,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,101,107"/>
+<area shape="rect" title=" " alt="" coords="983,229,1063,256"/>
+<area shape="rect" title=" " alt="" coords="177,80,242,107"/>
+<area shape="rect" title=" " alt="" coords="267,80,333,107"/>
+<area shape="rect" title=" " alt="" coords="357,80,432,107"/>
+<area shape="rect" title=" " alt="" coords="457,80,559,107"/>
+<area shape="rect" title=" " alt="" coords="584,80,680,107"/>
+<area shape="rect" title=" " alt="" coords="705,80,797,107"/>
+<area shape="rect" title=" " alt="" coords="1538,229,1611,256"/>
+<area shape="rect" title=" " alt="" coords="454,229,517,256"/>
+<area shape="rect" title=" " alt="" coords="959,80,1031,107"/>
+<area shape="rect" title=" " alt="" coords="1183,229,1241,256"/>
+<area shape="rect" title=" " alt="" coords="1145,80,1207,107"/>
+<area shape="rect" title=" " alt="" coords="1231,80,1305,107"/>
+<area shape="rect" title=" " alt="" coords="1329,80,1404,107"/>
+<area shape="rect" title=" " alt="" coords="1428,80,1487,107"/>
+<area shape="rect" href="User_8h.html" title="Класс User, представляющий пользователя системы." alt="" coords="821,80,883,107"/>
+<area shape="rect" href="Data_8h.html" title="Класс Data для управления данными, связанными с файлами и клиентами." alt="" coords="1055,80,1121,107"/>
+<area shape="rect" href="sha224_8h.html" title="Вычисляет SHA224 хэш для заданной строки." alt="" coords="751,155,833,181"/>
+<area shape="rect" title=" " alt="" coords="541,229,659,256"/>
+<area shape="rect" title=" " alt="" coords="683,229,802,256"/>
+<area shape="rect" title=" " alt="" coords="826,229,958,256"/>
+<area shape="rect" title=" " alt="" coords="1061,155,1112,181"/>
+<area shape="rect" title=" " alt="" coords="1136,155,1211,181"/>
+<area shape="rect" href="Errors_8h.html" title="Класс Errors для обработки и записи ошибок." alt="" coords="1367,155,1439,181"/>
+<area shape="rect" title=" " alt="" coords="1447,229,1513,256"/>
+<area shape="rect" title=" " alt="" coords="1265,229,1324,256"/>
+<area shape="rect" title=" " alt="" coords="1348,229,1423,256"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Граф файлов, в которые включается этот файл:</div>
+<div class="dyncontent">
+<div class="center"><img src="listener_8h__dep__incl.png" border="0" usemap="#alistener_8hdep" alt=""/></div>
+<map name="alistener_8hdep" id="alistener_8hdep">
+<area shape="rect" title="Класс listener для вычисления среднего арифметического значений в векторе." alt="" coords="76,5,159,32"/>
+<area shape="rect" href="Interface_8h.html" title="Класс Interface для обработки аргументов командной строки и хранения конфигурационных данных." alt="" coords="13,80,105,107"/>
+<area shape="rect" href="listener_8cpp.html" title="Класс listener для вычисления среднего арифметического значений в векторе." alt="" coords="129,80,226,107"/>
+<area shape="rect" href="Interface_8cpp.html" title="Класс Interface для обрабатки аргументов командной строки." alt="" coords="5,155,112,181"/>
+</map>
+</div>
+</div>
+<p><a href="listener_8h_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlistener.html">listener</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Класс listener, реализующий серверную часть приложения. Этот класс отвечает за установление соединения с клиентами, обработку их запросов и отправку ответов.  <a href="classlistener.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p >Класс listener для вычисления среднего арифметического значений в векторе. </p>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+</small></address>
+</body>
+</html>

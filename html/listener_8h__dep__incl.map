@@ -1,0 +1,6 @@
+<map id="listener.h" name="listener.h">
+<area shape="rect" id="node1" title="Класс listener для вычисления среднего арифметического значений в векторе." alt="" coords="76,5,159,32"/>
+<area shape="rect" id="node2" href="$Interface_8h.html" title="Класс Interface для обработки аргументов командной строки и хранения конфигурационных данных." alt="" coords="13,80,105,107"/>
+<area shape="rect" id="node4" href="$listener_8cpp.html" title="Класс listener для вычисления среднего арифметического значений в векторе." alt="" coords="129,80,226,107"/>
+<area shape="rect" id="node3" href="$Interface_8cpp.html" title="Класс Interface для обрабатки аргументов командной строки." alt="" coords="5,155,112,181"/>
+</map>

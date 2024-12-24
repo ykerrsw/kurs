@@ -1,3 +1,7 @@
+/**
+* @file sha224.h
+* @brief Вычисляет SHA224 хэш для заданной строки.
+*/
 #include <iostream>
 #include <vector>
 #include <cryptopp/hex.h>

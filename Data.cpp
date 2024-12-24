@@ -1,3 +1,7 @@
+/**
+ * @file Data.cpp
+ * @brief Класс Data для считывания данных клиентов из файла.
+ */
 #include "Data.h"
 
 /*

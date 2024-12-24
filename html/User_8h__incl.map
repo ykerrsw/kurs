@@ -1,0 +1,10 @@
+<map id="User.h" name="User.h">
+<area shape="rect" id="node1" title="Класс User, представляющий пользователя системы." alt="" coords="114,5,177,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,155,64,181"/>
+<area shape="rect" id="node3" title=" " alt="" coords="89,155,151,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="176,155,256,181"/>
+<area shape="rect" id="node5" href="$sha224_8h.html" title="Вычисляет SHA224 хэш для заданной строки." alt="" coords="209,80,290,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="281,155,399,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="423,155,542,181"/>
+<area shape="rect" id="node8" title=" " alt="" coords="566,155,698,181"/>
+</map>

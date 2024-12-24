@@ -1,21 +1,32 @@
+/**
+ * @file User.cpp
+ * @brief Класс User, представляющий пользователя системы.
+ */
 #include "User.h"
+#include <iostream>
 
-/*
+using namespace std;
+
+/**
  * @brief Проверяет, существует ли ID пользователя в базе данных.
  *
  * Функция проверяет наличие переданного ID пользователя в векторе ID из базы данных.
  *
  * @param Db_ID Вектор строк, содержащий ID пользователей из базы данных.
- * @return `true`, если ID пользователя найден в базе данных, `false` в противном случае.
+ * @return true, если ID пользователя найден в базе данных, false в противном случае.
  */
-bool User::СheckLogin(vector<string> Db_ID){
+bool User::СheckLogin(vector<string> Db_ID) {
     for (size_t i = 0; i < Db_ID.size(); ++i) {
-        if (Db_ID[i] == ID){
-            return 1;}}
-return 0;}
+        if (Db_ID[i] == ID) {
+            return 1;
+        }
+    }
+    return 0;
+}
 
 //------------------------------------------------------------------------------------------------
-/*
+
+/**
  * @brief Проверяет пароль пользователя.
  *
  * Функция проверяет корректность пароля пользователя, сравнивая его хэш с хэшем из базы данных.
@@ -25,57 +36,71 @@ return 0;}
  * @param Db_password Вектор строк, содержащий пароли пользователей из базы данных.
  * @param Db_ID Вектор строк, содержащий ID пользователей из базы данных.
  * @param SALT Строка, содержащая соль для хеширования.
- * @return `true`, если пароль верный, `false` в противном случае.
+ * @return true, если пароль верный, false в противном случае.
  */
-bool User::CheckPassword(vector<string> Db_password, vector<string> Db_ID, string SALT){
+bool User::CheckPassword(vector<string> Db_password, vector<string> Db_ID, string SALT) {
     int t = 0;
     for (size_t i = 0; i < Db_ID.size(); ++i) {
-        if (Db_ID[i] == ID){
+        if (Db_ID[i] == ID) {
             t = i;
         }
     }
-    
+
     string hashSHA224 = SALT + Db_password[t];
     string HASHSA224 = SHA224_hash(hashSHA224);
     //cout<<HASHSA224<<endl;
-    if (HASHSA224 == hash){
+    if (HASHSA224 == hash) {
         return 1;
-    } 
-    else{
+    } else {
         return 0;
     }
 }
+
 //------------------------------------------------------------------------------------------------
-/*
+
+/**
  * @brief Возвращает ID пользователя.
+ *
  * @return Строка, содержащая ID пользователя.
  */
-string User::get_ID(){
+string User::get_ID() {
     return ID;
 }
+
 //------------------------------------------------------------------------------------------------
-/*
+
+/**
  * @brief Устанавливает ID пользователя.
+ *
  * @param ID1 Новый ID пользователя.
  */
-void User::set_ID(string ID1){
+void User::set_ID(string ID1) {
     ID = ID1;
-
 }
 
 //------------------------------------------------------------------------------------------------
-/*
+
+/**
  * @brief Возвращает хэш пароля пользователя.
+ *
  * @return Строка, содержащая хэш пароля пользователя.
  */
-string User::get_hash(){
+string User::get_hash() {
     return hash;
 }
+
 //------------------------------------------------------------------------------------------------
-/*
+
+/**
  * @brief Устанавливает хэш пароля пользователя.
+ *
  * @param hash1 Новый хэш пароля пользователя.
  */
-void User::set_hash(string hash1){
+void User::set_hash(string hash1) {
     hash = hash1;
 }
+//------------------------------------------------------------------------------------------------
+/**
+• @brief Пустая глобальная функция, для Doxygen.
+*/
+void foo(){}

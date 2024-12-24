@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['get_5ffilereader_0',['get_FileReader',['../classData.html#a287bcca9c9373339e513cd360b173cb0',1,'Data']]],
-  ['get_5fport_1',['get_port',['../classlistener.html#a96e02b92bdbd8cbab37f60e6ca62ec2f',1,'listener']]]
+  ['file_5flog_0',['File_Log',['../classErrors.html#a4f3944dd888331e75ef12dcb29999997',1,'Errors']]],
+  ['filereader_1',['FileReader',['../classData.html#af04000f6aa0109915380661349942e9a',1,'Data']]],
+  ['foo_2',['foo',['../User_8cpp.html#ac07863d69ae41a4e395b31f73b35fbcd',1,'User.cpp']]]
 ];

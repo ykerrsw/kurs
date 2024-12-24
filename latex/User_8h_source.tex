@@ -1,36 +1,30 @@
 \hypertarget{User_8h_source}{}\doxysection{User.\+h}
-
+\mbox{\hyperlink{User_8h}{См. документацию.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{2 \textcolor{preprocessor}{\#include  <vector>}}
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <iostream>}}
-\DoxyCodeLine{4 }
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}sha224.h"{}}}
-\DoxyCodeLine{6 }
-\DoxyCodeLine{7 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <iostream>}}
 \DoxyCodeLine{8 }
-\DoxyCodeLine{9 \textcolor{comment}{/*}}
-\DoxyCodeLine{10 \textcolor{comment}{ * @brief Класс, представляющий пользователя системы.}}
-\DoxyCodeLine{11 \textcolor{comment}{ *}}
-\DoxyCodeLine{12 \textcolor{comment}{ * Класс User хранит информацию о пользователе (ID и хэш пароля) и предоставляет методы для проверки}}
-\DoxyCodeLine{13 \textcolor{comment}{ * подлинности пользователя. Обратите внимание, что хранение хэшей паролей напрямую в коде -\/}}
-\DoxyCodeLine{14 \textcolor{comment}{ * небезопасная практика. В реальных приложениях необходимо использовать более безопасные методы,}}
-\DoxyCodeLine{15 \textcolor{comment}{ * такие как bcrypt или Argon2, и хранить хэши в защищенной базе данных.}}
-\DoxyCodeLine{16 \textcolor{comment}{ */}}
-\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{classUser}{User}}\{}
-\DoxyCodeLine{18     \textcolor{keyword}{private}:}
-\DoxyCodeLine{19         \textcolor{keywordtype}{string} ID;  \textcolor{comment}{/*< Идентификатор пользователя. */}}
-\DoxyCodeLine{20         \textcolor{keywordtype}{string} hash;  \textcolor{comment}{/*< Хэш пароля пользователя. */}}
-\DoxyCodeLine{21     \textcolor{keyword}{public}:}
-\DoxyCodeLine{22         \textcolor{keywordtype}{bool} СheckLogin(vector<string> Db\_ID);}
-\DoxyCodeLine{23         \textcolor{keywordtype}{bool} CheckPassword(vector<string> Db\_hash, vector<string> Db\_ID, \textcolor{keywordtype}{string} SALT);}
-\DoxyCodeLine{24         }
-\DoxyCodeLine{25         \textcolor{keywordtype}{string} get\_ID();}
-\DoxyCodeLine{26         \textcolor{keywordtype}{void} set\_ID(\textcolor{keywordtype}{string} ID1);}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{sha224_8h}{sha224.h}}"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{classUser}{User}} \{}
+\DoxyCodeLine{22 \textcolor{keyword}{private}:}
+\DoxyCodeLine{24     \textcolor{keywordtype}{string} \mbox{\hyperlink{classUser_a2807c9e4e7bae5f6f8b662f98820b1ef}{ID}};}
+\DoxyCodeLine{26     \textcolor{keywordtype}{string} \mbox{\hyperlink{classUser_a2957ae2cc220553ab0fc3b52a6231201}{hash}};}
 \DoxyCodeLine{27 }
-\DoxyCodeLine{28         \textcolor{keywordtype}{string} get\_hash();}
-\DoxyCodeLine{29         \textcolor{keywordtype}{void} set\_hash(\textcolor{keywordtype}{string} hash1);}
-\DoxyCodeLine{30 }
-\DoxyCodeLine{31 \};}
+\DoxyCodeLine{28 \textcolor{keyword}{public}:}
+\DoxyCodeLine{29     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classUser_a1753823c0f9adbb73260860270f51834}{СheckLogin}}(vector<string> Db\_ID);}
+\DoxyCodeLine{30     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classUser_afe568031a6c845508f996a1262144cae}{CheckPassword}}(vector<string> Db\_hash, vector<string> Db\_ID, \textcolor{keywordtype}{string} SALT);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{string} \mbox{\hyperlink{classUser_a250efd79e8d26576e508e1785165926c}{get\_ID}}();}
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUser_a36330a5c4b0c37859896fd4b08c87c41}{set\_ID}}(\textcolor{keywordtype}{string} ID1);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{string} \mbox{\hyperlink{classUser_a25785cee66a1ca4f79d964a8333963d2}{get\_hash}}();}
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUser_a8efeeb227a1c45ff30dc5ac2287e2c48}{set\_hash}}(\textcolor{keywordtype}{string} hash1);}
+\DoxyCodeLine{37 \};}
+\DoxyCodeLine{38 }
 
 \end{DoxyCode}

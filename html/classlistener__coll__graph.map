@@ -1,4 +1,4 @@
 <map id="listener" name="listener">
-<area shape="rect" id="node1" title="Класс listener, реализующий серверную часть приложения." alt="" coords="5,95,76,121"/>
-<area shape="rect" id="node2" href="$classErrors.html" title=" " alt="" coords="11,5,71,32"/>
+<area shape="rect" id="node1" title="Класс listener, реализующий серверную часть приложения. Этот класс отвечает за установление соединени..." alt="" coords="5,95,76,121"/>
+<area shape="rect" id="node2" href="$classErrors.html" title="Класс для обработки и записи ошибок." alt="" coords="11,5,71,32"/>
 </map>

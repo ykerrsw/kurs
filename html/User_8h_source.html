@@ -65,38 +65,41 @@ $(function() {
   <div class="headertitle"><div class="title">User.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include  &lt;vector&gt;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;sha224.h&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">using namespace </span>std;</div>
+<a href="User_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * @brief Класс, представляющий пользователя системы.</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * Класс User хранит информацию о пользователе (ID и хэш пароля) и предоставляет методы для проверки</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * подлинности пользователя. Обратите внимание, что хранение хэшей паролей напрямую в коде -</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * небезопасная практика. В реальных приложениях необходимо использовать более безопасные методы,</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * такие как bcrypt или Argon2, и хранить хэши в защищенной базе данных.</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classUser.html">   17</a></span><span class="keyword">class </span><a class="code hl_class" href="classUser.html">User</a>{</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keywordtype">string</span> ID;  <span class="comment">/*&lt; Идентификатор пользователя. */</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keywordtype">string</span> hash;  <span class="comment">/*&lt; Хэш пароля пользователя. */</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keywordtype">bool</span> СheckLogin(vector&lt;string&gt; Db_ID);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keywordtype">bool</span> CheckPassword(vector&lt;string&gt; Db_hash, vector&lt;string&gt; Db_ID, <span class="keywordtype">string</span> SALT);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordtype">string</span> get_ID();</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keywordtype">void</span> set_ID(<span class="keywordtype">string</span> ID1);</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="sha224_8h.html">sha224.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">using namespace </span>std;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classUser.html">   21</a></span><span class="keyword">class </span><a class="code hl_class" href="classUser.html">User</a> {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classUser.html#a2807c9e4e7bae5f6f8b662f98820b1ef">   24</a></span>    <span class="keywordtype">string</span> <a class="code hl_variable" href="classUser.html#a2807c9e4e7bae5f6f8b662f98820b1ef">ID</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classUser.html#a2957ae2cc220553ab0fc3b52a6231201">   26</a></span>    <span class="keywordtype">string</span> <a class="code hl_variable" href="classUser.html#a2957ae2cc220553ab0fc3b52a6231201">hash</a>;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordtype">string</span> get_hash();</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keywordtype">void</span> set_hash(<span class="keywordtype">string</span> hash1);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>};</div>
-<div class="ttc" id="aclassUser_html"><div class="ttname"><a href="classUser.html">User</a></div><div class="ttdef"><b>Definition:</b> User.h:17</div></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classUser.html#a1753823c0f9adbb73260860270f51834">СheckLogin</a>(vector&lt;string&gt; Db_ID);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classUser.html#afe568031a6c845508f996a1262144cae">CheckPassword</a>(vector&lt;string&gt; Db_hash, vector&lt;string&gt; Db_ID, <span class="keywordtype">string</span> SALT);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">string</span> <a class="code hl_function" href="classUser.html#a250efd79e8d26576e508e1785165926c">get_ID</a>();</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUser.html#a36330a5c4b0c37859896fd4b08c87c41">set_ID</a>(<span class="keywordtype">string</span> ID1);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">string</span> <a class="code hl_function" href="classUser.html#a25785cee66a1ca4f79d964a8333963d2">get_hash</a>();</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classUser.html#a8efeeb227a1c45ff30dc5ac2287e2c48">set_hash</a>(<span class="keywordtype">string</span> hash1);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>};</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="ttc" id="aclassUser_html"><div class="ttname"><a href="classUser.html">User</a></div><div class="ttdoc">Класс, представляющий пользователя системы.</div><div class="ttdef"><b>Definition:</b> User.h:21</div></div>
+<div class="ttc" id="aclassUser_html_a1753823c0f9adbb73260860270f51834"><div class="ttname"><a href="classUser.html#a1753823c0f9adbb73260860270f51834">User::СheckLogin</a></div><div class="ttdeci">bool СheckLogin(vector&lt; string &gt; Db_ID)</div><div class="ttdoc">Проверяет, существует ли ID пользователя в базе данных.</div><div class="ttdef"><b>Definition:</b> User.cpp:18</div></div>
+<div class="ttc" id="aclassUser_html_a250efd79e8d26576e508e1785165926c"><div class="ttname"><a href="classUser.html#a250efd79e8d26576e508e1785165926c">User::get_ID</a></div><div class="ttdeci">string get_ID()</div><div class="ttdoc">Возвращает ID пользователя.</div><div class="ttdef"><b>Definition:</b> User.cpp:66</div></div>
+<div class="ttc" id="aclassUser_html_a25785cee66a1ca4f79d964a8333963d2"><div class="ttname"><a href="classUser.html#a25785cee66a1ca4f79d964a8333963d2">User::get_hash</a></div><div class="ttdeci">string get_hash()</div><div class="ttdoc">Возвращает хэш пароля пользователя.</div><div class="ttdef"><b>Definition:</b> User.cpp:88</div></div>
+<div class="ttc" id="aclassUser_html_a2807c9e4e7bae5f6f8b662f98820b1ef"><div class="ttname"><a href="classUser.html#a2807c9e4e7bae5f6f8b662f98820b1ef">User::ID</a></div><div class="ttdeci">string ID</div><div class="ttdoc">Идентификатор пользователя.</div><div class="ttdef"><b>Definition:</b> User.h:24</div></div>
+<div class="ttc" id="aclassUser_html_a2957ae2cc220553ab0fc3b52a6231201"><div class="ttname"><a href="classUser.html#a2957ae2cc220553ab0fc3b52a6231201">User::hash</a></div><div class="ttdeci">string hash</div><div class="ttdoc">Хэш пароля пользователя.</div><div class="ttdef"><b>Definition:</b> User.h:26</div></div>
+<div class="ttc" id="aclassUser_html_a36330a5c4b0c37859896fd4b08c87c41"><div class="ttname"><a href="classUser.html#a36330a5c4b0c37859896fd4b08c87c41">User::set_ID</a></div><div class="ttdeci">void set_ID(string ID1)</div><div class="ttdoc">Устанавливает ID пользователя.</div><div class="ttdef"><b>Definition:</b> User.cpp:77</div></div>
+<div class="ttc" id="aclassUser_html_a8efeeb227a1c45ff30dc5ac2287e2c48"><div class="ttname"><a href="classUser.html#a8efeeb227a1c45ff30dc5ac2287e2c48">User::set_hash</a></div><div class="ttdeci">void set_hash(string hash1)</div><div class="ttdoc">Устанавливает хэш пароля пользователя.</div><div class="ttdef"><b>Definition:</b> User.cpp:99</div></div>
+<div class="ttc" id="aclassUser_html_afe568031a6c845508f996a1262144cae"><div class="ttname"><a href="classUser.html#afe568031a6c845508f996a1262144cae">User::CheckPassword</a></div><div class="ttdeci">bool CheckPassword(vector&lt; string &gt; Db_hash, vector&lt; string &gt; Db_ID, string SALT)</div><div class="ttdoc">Проверяет пароль пользователя.</div><div class="ttdef"><b>Definition:</b> User.cpp:41</div></div>
+<div class="ttc" id="asha224_8h_html"><div class="ttname"><a href="sha224_8h.html">sha224.h</a></div><div class="ttdoc">Вычисляет SHA224 хэш для заданной строки.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

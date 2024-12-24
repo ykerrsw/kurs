@@ -123,7 +123,7 @@ using namespace std;
  */
     TEST(port_error){
     	listener l;
-        CHECK_THROW(l.set_address("104"), invalid_argument);}
+        CHECK_THROW(l.set_address("1"), invalid_argument);}
         
 /**
  * @brief Тест проверяет правильность расчета среднего арифметического значения вектора чисел.

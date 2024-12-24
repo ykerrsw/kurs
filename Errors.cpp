@@ -1,3 +1,7 @@
+/**
+ * @file Errors.cpp
+ * @brief Класс Errors для обработки ошибок и их записи в файл.
+ */
 #include "Errors.h"
 
 /*

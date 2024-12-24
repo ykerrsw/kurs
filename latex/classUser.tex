@@ -1,38 +1,149 @@
 \hypertarget{classUser}{}\doxysection{Класс User}
 \label{classUser}\index{User@{User}}
+
+
+Класс, представляющий пользователя системы.  
+
+
+
+
+{\ttfamily \#include $<$User.\+h$>$}
+
 \doxysubsection*{Открытые члены}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classUser_a1753823c0f9adbb73260860270f51834}\label{classUser_a1753823c0f9adbb73260860270f51834}} 
-bool {\bfseries Сheck\+Login} (vector$<$ string $>$ Db\+\_\+\+ID)
-\item 
-\mbox{\Hypertarget{classUser_afe568031a6c845508f996a1262144cae}\label{classUser_afe568031a6c845508f996a1262144cae}} 
-bool {\bfseries Check\+Password} (vector$<$ string $>$ Db\+\_\+hash, vector$<$ string $>$ Db\+\_\+\+ID, string SALT)
-\item 
-\mbox{\Hypertarget{classUser_a250efd79e8d26576e508e1785165926c}\label{classUser_a250efd79e8d26576e508e1785165926c}} 
-string {\bfseries get\+\_\+\+ID} ()
-\item 
-\mbox{\Hypertarget{classUser_a36330a5c4b0c37859896fd4b08c87c41}\label{classUser_a36330a5c4b0c37859896fd4b08c87c41}} 
-void {\bfseries set\+\_\+\+ID} (string ID1)
-\item 
-\mbox{\Hypertarget{classUser_a25785cee66a1ca4f79d964a8333963d2}\label{classUser_a25785cee66a1ca4f79d964a8333963d2}} 
-string {\bfseries get\+\_\+hash} ()
-\item 
-\mbox{\Hypertarget{classUser_a8efeeb227a1c45ff30dc5ac2287e2c48}\label{classUser_a8efeeb227a1c45ff30dc5ac2287e2c48}} 
-void {\bfseries set\+\_\+hash} (string hash1)
-\end{DoxyCompactItemize}
+bool \mbox{\hyperlink{classUser_a1753823c0f9adbb73260860270f51834}{Сheck\+Login}} (vector$<$ string $>$ Db\+\_\+\+ID)
+\begin{DoxyCompactList}\small\item\em Проверяет, существует ли ID пользователя в базе данных. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classUser_afe568031a6c845508f996a1262144cae}{Check\+Password}} (vector$<$ string $>$ Db\+\_\+hash, vector$<$ string $>$ Db\+\_\+\+ID, string SALT)
+\begin{DoxyCompactList}\small\item\em Проверяет пароль пользователя. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classUser_a250efd79e8d26576e508e1785165926c}{get\+\_\+\+ID}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает ID пользователя. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUser_a36330a5c4b0c37859896fd4b08c87c41}{set\+\_\+\+ID}} (string ID1)
+\begin{DoxyCompactList}\small\item\em Устанавливает ID пользователя. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classUser_a25785cee66a1ca4f79d964a8333963d2}{get\+\_\+hash}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает хэш пароля пользователя. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUser_a8efeeb227a1c45ff30dc5ac2287e2c48}{set\+\_\+hash}} (string hash1)
+\begin{DoxyCompactList}\small\item\em Устанавливает хэш пароля пользователя. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Закрытые данные}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classUser_a2807c9e4e7bae5f6f8b662f98820b1ef}\label{classUser_a2807c9e4e7bae5f6f8b662f98820b1ef}} 
 string {\bfseries ID}
-\item 
+\begin{DoxyCompactList}\small\item\em Идентификатор пользователя. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classUser_a2957ae2cc220553ab0fc3b52a6231201}\label{classUser_a2957ae2cc220553ab0fc3b52a6231201}} 
 string {\bfseries hash}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Хэш пароля пользователя. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс, представляющий пользователя системы. 
+
+Класс \mbox{\hyperlink{classUser}{User}} хранит информацию о пользователе (ID и хэш пароля) и предоставляет методы для проверки подлинности пользователя. Обратите внимание, что хранение хэшей паролей напрямую в коде -\/ небезопасная практика. В реальных приложениях необходимо использовать более безопасные методы, такие как bcrypt или Argon2, и хранить хэши в защищенной базе данных. 
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classUser_a1753823c0f9adbb73260860270f51834}\label{classUser_a1753823c0f9adbb73260860270f51834}} 
+\index{User@{User}!СheckLogin@{СheckLogin}}
+\index{СheckLogin@{СheckLogin}!User@{User}}
+\doxysubsubsection{\texorpdfstring{СheckLogin()}{СheckLogin()}}
+{\footnotesize\ttfamily bool User\+::Сheck\+Login (\begin{DoxyParamCaption}\item[{vector$<$ string $>$}]{Db\+\_\+\+ID }\end{DoxyParamCaption})}
+
+
+
+Проверяет, существует ли ID пользователя в базе данных. 
+
+Функция проверяет наличие переданного ID пользователя в векторе ID из базы данных.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em Db\+\_\+\+ID} & Вектор строк, содержащий ID пользователей из базы данных. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true, если ID пользователя найден в базе данных, false в противном случае. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUser_afe568031a6c845508f996a1262144cae}\label{classUser_afe568031a6c845508f996a1262144cae}} 
+\index{User@{User}!CheckPassword@{CheckPassword}}
+\index{CheckPassword@{CheckPassword}!User@{User}}
+\doxysubsubsection{\texorpdfstring{CheckPassword()}{CheckPassword()}}
+{\footnotesize\ttfamily bool User\+::\+Check\+Password (\begin{DoxyParamCaption}\item[{vector$<$ string $>$}]{Db\+\_\+password,  }\item[{vector$<$ string $>$}]{Db\+\_\+\+ID,  }\item[{string}]{SALT }\end{DoxyParamCaption})}
+
+
+
+Проверяет пароль пользователя. 
+
+Функция проверяет корректность пароля пользователя, сравнивая его хэш с хэшем из базы данных. Сначала по ID пользователя находится соответствующий пароль в базе данных. Затем вычисляется хэш переданного пароля с добавлением соли и сравнивается с хэшем из базы данных.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em Db\+\_\+password} & Вектор строк, содержащий пароли пользователей из базы данных. \\
+\hline
+{\em Db\+\_\+\+ID} & Вектор строк, содержащий ID пользователей из базы данных. \\
+\hline
+{\em SALT} & Строка, содержащая соль для хеширования. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true, если пароль верный, false в противном случае. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUser_a25785cee66a1ca4f79d964a8333963d2}\label{classUser_a25785cee66a1ca4f79d964a8333963d2}} 
+\index{User@{User}!get\_hash@{get\_hash}}
+\index{get\_hash@{get\_hash}!User@{User}}
+\doxysubsubsection{\texorpdfstring{get\_hash()}{get\_hash()}}
+{\footnotesize\ttfamily string User\+::get\+\_\+hash (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Возвращает хэш пароля пользователя. 
+
+\begin{DoxyReturn}{Возвращает}
+Строка, содержащая хэш пароля пользователя. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUser_a250efd79e8d26576e508e1785165926c}\label{classUser_a250efd79e8d26576e508e1785165926c}} 
+\index{User@{User}!get\_ID@{get\_ID}}
+\index{get\_ID@{get\_ID}!User@{User}}
+\doxysubsubsection{\texorpdfstring{get\_ID()}{get\_ID()}}
+{\footnotesize\ttfamily string User\+::get\+\_\+\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Возвращает ID пользователя. 
+
+\begin{DoxyReturn}{Возвращает}
+Строка, содержащая ID пользователя. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUser_a8efeeb227a1c45ff30dc5ac2287e2c48}\label{classUser_a8efeeb227a1c45ff30dc5ac2287e2c48}} 
+\index{User@{User}!set\_hash@{set\_hash}}
+\index{set\_hash@{set\_hash}!User@{User}}
+\doxysubsubsection{\texorpdfstring{set\_hash()}{set\_hash()}}
+{\footnotesize\ttfamily void User\+::set\+\_\+hash (\begin{DoxyParamCaption}\item[{string}]{hash1 }\end{DoxyParamCaption})}
+
+
+
+Устанавливает хэш пароля пользователя. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em hash1} & Новый хэш пароля пользователя. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUser_a36330a5c4b0c37859896fd4b08c87c41}\label{classUser_a36330a5c4b0c37859896fd4b08c87c41}} 
+\index{User@{User}!set\_ID@{set\_ID}}
+\index{set\_ID@{set\_ID}!User@{User}}
+\doxysubsubsection{\texorpdfstring{set\_ID()}{set\_ID()}}
+{\footnotesize\ttfamily void User\+::set\+\_\+\+ID (\begin{DoxyParamCaption}\item[{string}]{ID1 }\end{DoxyParamCaption})}
+
+
+
+Устанавливает ID пользователя. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em ID1} & Новый ID пользователя. \\
+\hline
+\end{DoxyParams}
 
 
 Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
 \item 
-User.\+h\item 
-User.\+cpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{User_8h}{User.\+h}}\item 
+\mbox{\hyperlink{User_8cpp}{User.\+cpp}}\end{DoxyCompactItemize}

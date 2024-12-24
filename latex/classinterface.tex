@@ -1,38 +1,113 @@
 \hypertarget{classinterface}{}\doxysection{Класс interface}
 \label{classinterface}\index{interface@{interface}}
+
+
+Класс interface для обработки аргументов командной строки и хранения конфигурационных данных.  
+
+
+
+
+{\ttfamily \#include $<$Interface.\+h$>$}
+
 \doxysubsection*{Открытые члены}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classinterface_a7d1eac0c0e008f4e1187bbcb246aefbd}\label{classinterface_a7d1eac0c0e008f4e1187bbcb246aefbd}} 
-{\bfseries interface} (int argc, char $\ast$$\ast$argv)
-\item 
-\mbox{\Hypertarget{classinterface_a7160e75fb1ba8a29e007821d27ae7aa9}\label{classinterface_a7160e75fb1ba8a29e007821d27ae7aa9}} 
-string {\bfseries get\+\_\+ip} ()
-\item 
-\mbox{\Hypertarget{classinterface_abc40e3244834df4ab4f9c8526ccbc5b6}\label{classinterface_abc40e3244834df4ab4f9c8526ccbc5b6}} 
-int {\bfseries get\+\_\+port} ()
-\item 
-\mbox{\Hypertarget{classinterface_a9763c708e44a16634c093d225ef9fc87}\label{classinterface_a9763c708e44a16634c093d225ef9fc87}} 
-int {\bfseries help} ()
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classinterface_a7d1eac0c0e008f4e1187bbcb246aefbd}{interface}} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Конструктор, обрабатывающий аргументы командной строки. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classinterface_a6cdf2558acc69285022872b7ca0ca054}\label{classinterface_a6cdf2558acc69285022872b7ca0ca054}} 
+{\bfseries interface} ()=delete
+\begin{DoxyCompactList}\small\item\em Запрещает создание объектов класса без аргументов. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classinterface_a7160e75fb1ba8a29e007821d27ae7aa9}{get\+\_\+ip}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает IP-\/адрес. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classinterface_abc40e3244834df4ab4f9c8526ccbc5b6}{get\+\_\+port}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает номер порта. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classinterface_a9763c708e44a16634c093d225ef9fc87}{help}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает справку и завершает работу. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Открытые атрибуты}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classinterface_ae5d9a7543209294aedc0d1437a56bb6b}\label{classinterface_ae5d9a7543209294aedc0d1437a56bb6b}} 
 string {\bfseries ip}
-\item 
+\begin{DoxyCompactList}\small\item\em IP-\/адрес \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classinterface_a13cd710d0eef40b7deed70eebb5e3c3d}\label{classinterface_a13cd710d0eef40b7deed70eebb5e3c3d}} 
 int {\bfseries port}
-\item 
+\begin{DoxyCompactList}\small\item\em Порт \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classinterface_aede0a601469a7b00b95265da2ff052a4}\label{classinterface_aede0a601469a7b00b95265da2ff052a4}} 
 string {\bfseries database}
-\item 
+\begin{DoxyCompactList}\small\item\em Название файла с базой данных \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classinterface_a03986e4b403c49e3dee94068db1d97d6}\label{classinterface_a03986e4b403c49e3dee94068db1d97d6}} 
 string {\bfseries logfile}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Название файла, куда записываются ошибки \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс interface для обработки аргументов командной строки и хранения конфигурационных данных. 
+
+Этот класс предназначен для обработки аргументов командной строки, полученных при запуске программы, и хранения конфигурационных данных, таких как IP-\/адрес, номер порта, имя файла базы данных и имя файла журнала ошибок. 
+
+\doxysubsection{Конструктор(ы)}
+\mbox{\Hypertarget{classinterface_a7d1eac0c0e008f4e1187bbcb246aefbd}\label{classinterface_a7d1eac0c0e008f4e1187bbcb246aefbd}} 
+\index{interface@{interface}!interface@{interface}}
+\index{interface@{interface}!interface@{interface}}
+\doxysubsubsection{\texorpdfstring{interface()}{interface()}}
+{\footnotesize\ttfamily interface\+::interface (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Конструктор, обрабатывающий аргументы командной строки. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em argc} & Количество аргументов командной строки. \\
+\hline
+{\em argv} & Массив аргументов командной строки. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classinterface_a7160e75fb1ba8a29e007821d27ae7aa9}\label{classinterface_a7160e75fb1ba8a29e007821d27ae7aa9}} 
+\index{interface@{interface}!get\_ip@{get\_ip}}
+\index{get\_ip@{get\_ip}!interface@{interface}}
+\doxysubsubsection{\texorpdfstring{get\_ip()}{get\_ip()}}
+{\footnotesize\ttfamily string interface\+::get\+\_\+ip (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Возвращает IP-\/адрес. 
+
+\begin{DoxyReturn}{Возвращает}
+IP-\/адрес. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classinterface_abc40e3244834df4ab4f9c8526ccbc5b6}\label{classinterface_abc40e3244834df4ab4f9c8526ccbc5b6}} 
+\index{interface@{interface}!get\_port@{get\_port}}
+\index{get\_port@{get\_port}!interface@{interface}}
+\doxysubsubsection{\texorpdfstring{get\_port()}{get\_port()}}
+{\footnotesize\ttfamily int interface\+::get\+\_\+port (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Возвращает номер порта. 
+
+\begin{DoxyReturn}{Возвращает}
+int Номер порта. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classinterface_a9763c708e44a16634c093d225ef9fc87}\label{classinterface_a9763c708e44a16634c093d225ef9fc87}} 
+\index{interface@{interface}!help@{help}}
+\index{help@{help}!interface@{interface}}
+\doxysubsubsection{\texorpdfstring{help()}{help()}}
+{\footnotesize\ttfamily int interface\+::help (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Возвращает справку и завершает работу. 
+
+\begin{DoxyReturn}{Возвращает}
+int Возвращает справку. 
+\end{DoxyReturn}
 
 
 Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
 \item 
-Interface.\+h\item 
-Interface.\+cpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{Interface_8h}{Interface.\+h}}\item 
+\mbox{\hyperlink{Interface_8cpp}{Interface.\+cpp}}\end{DoxyCompactItemize}
